@@ -1,0 +1,18 @@
+application.name = Minneskort
+question = Fråga
+answer = Svar
+
+flashcard.details = Fråga: {0}
+
+deck.name = Namn
+deck.size = Storlek
+deck.details = Kortlek: {0}
+deck.list = Kortlekar ({0} st)
+
+flashcard.form = Minneskort
+flashcard.new = (nytt)
+flashcard.new.command = Nytt
+flashcard.new.submit = Add
+flashcard.new.success = Successfully added product {0}.
+validation.errors = Please correct the errors in the form.
+validation.id.duplicate = A flashcard with this id code already exists

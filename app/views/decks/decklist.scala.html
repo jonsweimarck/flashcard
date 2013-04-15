@@ -1,0 +1,10 @@
+@(decks: List[Deck])(implicit flash: Flash)
+
+@main(Messages("deck.list", decks.size)) {
+  
+<dl class="products">
+	@for(deck <- decks) {
+		<dt><a href="@routes.Decks.details(deck.id)">@deck.name</a> [ @deck.size ]</dt>
+	}
+</dl>
+}

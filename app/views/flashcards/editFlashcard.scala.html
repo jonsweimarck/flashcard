@@ -1,0 +1,20 @@
+@(flashcardForm: Form[Flashcard])(implicit flash: Flash)
+
+@import helper._
+@import helper.twitterBootstrap._
+
+@main(Messages("flashcard.form")) {
+	<h2>@Messages("flashcard.form")</h2>
+	@helper.form(action = routes.Flashcards.save()) {
+		<fieldset>
+			<legend>
+				@Messages("flashcard.details", Messages("flashcard.new"))
+			</legend>
+			@helper.inputText(flashcardForm("id"))
+			@helper.inputText(flashcardForm("question"))
+			@helper.textarea(flashcardForm("answer"))
+		</fieldset>
+		<p><input type="submit" class="btn primary" value='@Messages("flashcard.new.submit")'></p>
+	}
+}
+

@@ -1,0 +1,17 @@
+@(flashcard: Flashcard)(implicit flash: Flash)
+@main(Messages("flascard.details", flashcard.id)) {
+
+<h2>
+	@flashcard.question
+</h2>
+<h2>
+	@flashcard.answer
+</h2>
+
+<dl class="dl-horizontal">
+<dt>@Messages("question"):</dt>
+<dd>@flashcard.question</dd>
+<dt>@Messages("answer"):</dt>
+<dd>@flashcard.answer</dd>
+</dl>
+}

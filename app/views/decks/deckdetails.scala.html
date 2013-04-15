@@ -1,0 +1,14 @@
+@(deck: Deck)(implicit flash: Flash)
+@main(Messages("deck.details", deck.name)) {
+
+<h2>
+	@deck.name (@deck.id)
+</h2>
+
+<dl class="dl-horizontal">
+<dt>@Messages("deck.name"):</dt>
+<dd>@deck.name</dd>
+<dt>@Messages("deck.size"):</dt>
+<dd>@deck.size</dd>
+</dl>
+}
