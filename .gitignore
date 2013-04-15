@@ -1,8 +1,12 @@
 target/
 bin/
-.cache
-
+.settings/
+logs/
 .target
 /
+
+.cache
 .project
+.classpath
+README
 
