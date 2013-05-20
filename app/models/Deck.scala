@@ -1,10 +1,27 @@
 package models
 
 case class Deck(id: Integer, name: String, flashcards: Set[Flashcard]) {
+  
   def size = flashcards.size
+  
+  def getRandomFlashcard(flashcardsState: String): Flashcard = flashcards.head
+
 }
 
 object Deck {
+  
+  def findFlashcard(deckId: Integer, flashcardsState: String) = {
+      findById(deckId).map { 
+        deck => deck.getRandomFlashcard(flashcardsState) 
+      }.getOrElse(throw new Exception("JKJKJK"))
+  }
+  
+  def newState(state: String, deckId: Integer, flashcardId: Integer): String = {
+    if(state = "0") // Skapa flashcards.size lång string av nollor, sätt flashcardId som index till en 1:a
+    else
+      // sätt flashcardId som index till en 1:a
+  }
+    
   
   def findAll = decks.toList
   

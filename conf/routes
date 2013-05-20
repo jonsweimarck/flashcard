@@ -11,6 +11,8 @@ GET 	/flashcard/new 				controllers.Flashcards.newFlashcard
 
 GET		/flashcard/:id				controllers.Flashcards.details(id: Integer)
 
+GET		/deck/:id/flashcard/:state	controllers.Decks.flashcardFromState(id: Integer, state: String)
+
 GET		/flashcards					controllers.Flashcards.list
 
 GET		/deck/:id				    controllers.Decks.details(id: Integer)
