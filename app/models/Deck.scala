@@ -1,37 +1,24 @@
 package models
+import scala.util.Random
 
-case class Deck(id: Integer, name: String, flashcards: Set[Flashcard]) {
-  
+case class Deck(id: Int, name: String, flashcards: List[Flashcard]) {
+
   def size = flashcards.size
   
-  def getRandomFlashcard(flashcardsState: String): Flashcard = flashcards.head
-
+  def getFlashcardByIndex(flashCardIndex: Int): Flashcard =  flashcards(flashCardIndex)     
 }
 
-object Deck {
-  
-  def findFlashcard(deckId: Integer, flashcardsState: String) = {
-      findById(deckId).map { 
-        deck => deck.getRandomFlashcard(flashcardsState) 
-      }.getOrElse(throw new Exception("JKJKJK"))
-  }
-  
-  def newState(state: String, deckId: Integer, flashcardId: Integer): String = {
-    if(state = "0") // Skapa flashcards.size lång string av nollor, sätt flashcardId som index till en 1:a
-    else
-      // sätt flashcardId som index till en 1:a
-  }
-    
-  
+object Deck { 
+
   def findAll = decks.toList
   
   def findById(id: Integer) = {decks.find(_.id == id)}
   
-  var lillaPlusCards = Set (Flashcard(1, "1+1=", "2"),
+  var lillaPlusCards = List (Flashcard(1, "1+1=", "2"),
 		  					Flashcard(2, "1+2=", "3"),
 		  					Flashcard(3, "1+3=", "4"))
 		  					
-  var lillaMinusCards = Set (Flashcard(4, "2-1=", "1"),
+  var lillaMinusCards = List (Flashcard(4, "2-1=", "1"),
 		  					Flashcard(5, "3-1=", "2"),
 		  					Flashcard(6, "4-1=", "3"))
   

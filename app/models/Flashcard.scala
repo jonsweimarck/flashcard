@@ -13,7 +13,8 @@ object Flashcard {
 	  this.flashcards = this.flashcards + flashcards
   }
   
-  var flashcards = Set (Flashcard(1, "1+1=", "2"),
+  var flashcards = Set (Flashcard(0, "0+1=", "1"),
+		  				Flashcard(1, "1+1=", "2"),
 		  				Flashcard(2, "1+2=", "3"),
 		  				Flashcard(3, "1+3=", "4"))
 		  				

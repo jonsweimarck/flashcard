@@ -3,21 +3,25 @@
 # ~~~~
 
 # Home page
-GET     /                           controllers.Application.index
+GET     /                           	controllers.Application.index
 
-POST 	/flashcard 					controllers.Flashcards.save
+POST 	/flashcard 						controllers.Flashcards.save
 
-GET 	/flashcard/new 				controllers.Flashcards.newFlashcard
+POST 	/deck/nextFlashcardFromState2 	controllers.Decks.nextFlashcardFromState2
+ 
+GET 	/flashcard/new 					controllers.Flashcards.newFlashcard
 
-GET		/flashcard/:id				controllers.Flashcards.details(id: Integer)
+GET		/flashcard/:id					controllers.Flashcards.details(id: Integer)
 
-GET		/deck/:id/flashcard/:state	controllers.Decks.flashcardFromState(id: Integer, state: String)
+GET		/deck/:id/nextflashcard/:state	controllers.Decks.nextFlashcardFromState(id: Int, state: String)
 
-GET		/flashcards					controllers.Flashcards.list
+GET		/deck/:id/initialflashcard		controllers.Decks.initialFlashcard(id: Int)
 
-GET		/deck/:id				    controllers.Decks.details(id: Integer)
+GET		/flashcards						controllers.Flashcards.list
 
-GET		/decks						controllers.Decks.list
+GET		/deck/:id				    	controllers.Decks.details(id: Integer)
+
+GET		/decks							controllers.Decks.list
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
