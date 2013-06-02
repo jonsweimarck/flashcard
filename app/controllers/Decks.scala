@@ -31,12 +31,18 @@ object Decks extends Controller {
   	    stateParameters => {
   	      val deck: Deck = Deck.findById(stateParameters.deckId).getOrElse(throw new Exception("Can't find Deck with id " + stateParameters.deckId))
   	      val flashcardsState: FlashcardsState = FlashcardsState(stateParameters.flashcardsStateAsString)
-  	      val indexOfFlashCardToShow = flashcardsState.getRandomUnshownIndex()
-  	      val newOKState = flashcardsState.setShownOK(indexOfFlashCardToShow)
-  	      val newNOKState = flashcardsState.setShownNOK(indexOfFlashCardToShow)
-  	      val flashcard = deck.getFlashcardByIndex(indexOfFlashCardToShow)
-  		
-  	      Ok(views.html.flashcards.show(deck.id, flashcard, newOKState, newNOKState))
+  	      
+  	      if(flashcardsState.allFinished)  
+  	        Ok(views.html.decks.deckdetails(deck))
+  	      else {
+  	    	  val indexOfFlashCardToShow = flashcardsState.getRandomUnshownIndex()
+			  val newOKState = flashcardsState.setShownOK(indexOfFlashCardToShow)
+			  val newNOKState = flashcardsState.setShownNOK(indexOfFlashCardToShow)
+	  	      val flashcard = deck.getFlashcardByIndex(indexOfFlashCardToShow)
+	  		
+	  	      Ok(views.html.flashcards.show(deck.id, flashcard, newOKState, newNOKState, flashcardsState.onlyRetriesLeft))
+  	      }
+  	      
   	    }
   	  )
   	}
@@ -55,7 +61,7 @@ object Decks extends Controller {
   	  val newNOKState = flashcardsState.setShownNOK(indexOfFlashCardToShow)
   	  val flashcard = deck.getFlashcardByIndex(indexOfFlashCardToShow)
   		
-  	  Ok(views.html.flashcards.show(deck.id, flashcard, newOKState, newNOKState))
+  	  Ok(views.html.flashcards.show(deck.id, flashcard, newOKState, newNOKState, flashcardsState.onlyRetriesLeft))
   	}
   	
    private val stateForm: Form[StateParameters] = Form(
