@@ -40,7 +40,7 @@ object Decks extends Controller {
 			  val newNOKState = flashcardsState.setShownNOK(indexOfFlashCardToShow)
 	  	      val flashcard = deck.getFlashcardByIndex(indexOfFlashCardToShow)
 	  		
-	  	      Ok(views.html.flashcards.show(deck.id, flashcard, newOKState, newNOKState, flashcardsState.onlyRetriesLeft))
+	  	      Ok(views.html.flashcards.show(deck.id, flashcard, flashcardsState, newOKState, newNOKState, flashcardsState.onlyRetriesLeft))
   	      }
   	      
   	    }
@@ -61,7 +61,7 @@ object Decks extends Controller {
   	  val newNOKState = flashcardsState.setShownNOK(indexOfFlashCardToShow)
   	  val flashcard = deck.getFlashcardByIndex(indexOfFlashCardToShow)
   		
-  	  Ok(views.html.flashcards.show(deck.id, flashcard, newOKState, newNOKState, flashcardsState.onlyRetriesLeft))
+  	  Ok(views.html.flashcards.show(deck.id, flashcard, flashcardsState, newOKState, newNOKState, flashcardsState.onlyRetriesLeft))
   	}
   	
    private val stateForm: Form[StateParameters] = Form(

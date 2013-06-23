@@ -1,0 +1,41 @@
+@(deckId: Int, flashcard: Flashcard, currentState: FlashcardsState, postStateIfOK: FlashcardsState, postStateIfNOK: FlashcardsState, retries: Boolean)(implicit flash: Flash)
+@mainWithGraph(Messages("flascard.details", flashcard.id))(currentState) {
+
+<h2>
+	@flashcard.question
+</h2>
+<h2>
+	@flashcard.answer
+</h2>
+
+@if(retries){
+<h2> RETRIES </h2>
+}
+<dl class="dl-horizontal">
+<dt>@Messages("question"):</dt>
+<dd>@flashcard.question</dd>
+<dt>@Messages("answer"):</dt>
+<dd>@flashcard.answer</dd>
+<dt>post ok state</dt>
+<dd>@postStateIfOK.stateAsString</dd>
+<dt>post nok state</dt>
+<dd>@postStateIfNOK.stateAsString</dd>
+</dl>
+
+<div id="chart_div" style="width: 900px; height: 500px;"></div>
+
+
+<form action="@routes.Decks.nextFlashcardFromState2()" method="post">
+	<input type="hidden" name="deckId" value="@deckId">
+	<input type="hidden" name="flashcardsStateAsString" value="@postStateIfOK.stateAsString"> 
+	<button type="submit">OK</button>
+</form>
+
+<form action="@routes.Decks.nextFlashcardFromState2()" method="post">
+	<input type="hidden" name="deckId" value="@deckId">
+	<input type="hidden" name="flashcardsStateAsString" value="@postStateIfNOK.stateAsString"> 
+	<button type="submit">NOK</button>
+</form>
+
+
+}
