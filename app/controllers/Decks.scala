@@ -46,6 +46,28 @@ object Decks extends Controller {
   	    }
   	  )
   	}
+
+  	def initialFlashcard2() = Action { implicit request =>
+  	  initialFlashcardForm.bindFromRequest().fold(
+  	    formWithErrors => BadRequest("Couldn't Happen!"),
+  	    stateParameters => {
+  	      val deck: Deck = Deck.findById(stateParameters.deckId).getOrElse(throw new Exception("Can't find Deck with id " + stateParameters.deckId))
+  	      val flashcardsState = FlashcardsState.newInitialState(deck.size)
+  	      
+  	      if(flashcardsState.allFinished)  
+  	        Ok(views.html.decks.deckdetails(deck))
+  	      else {
+  	    	  val indexOfFlashCardToShow = flashcardsState.getRandomUnshownIndex()
+			  val newOKState = flashcardsState.setShownOK(indexOfFlashCardToShow)
+			  val newNOKState = flashcardsState.setShownNOK(indexOfFlashCardToShow)
+	  	      val flashcard = deck.getFlashcardByIndex(indexOfFlashCardToShow)
+	  		
+	  	      Ok(views.html.flashcards.show(deck.id, flashcard, flashcardsState, newOKState, newNOKState, flashcardsState.onlyRetriesLeft))
+  	      }
+  	      
+  	    }
+  	  )
+  	}
   	
   	
   	def initialFlashcard(deckId: Int) = {
@@ -63,6 +85,13 @@ object Decks extends Controller {
   		
   	  Ok(views.html.flashcards.show(deck.id, flashcard, flashcardsState, newOKState, newNOKState, flashcardsState.onlyRetriesLeft))
   	}
+  	
+ 	private val initialFlashcardForm: Form[InitialFlashcardParameters] = Form(
+  			mapping(
+  					"deckId" -> number
+  					
+  			)(InitialFlashcardParameters.apply)(InitialFlashcardParameters.unapply)
+  	)
   	
    private val stateForm: Form[StateParameters] = Form(
   			mapping(

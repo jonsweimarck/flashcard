@@ -4,7 +4,13 @@
   
 <dl class="products">
 	@for(deck <- decks) {
-		<dt><a href="@routes.Decks.details(deck.id)">@deck.name</a> [ @deck.size ]</dt>
+		<form action="@routes.Decks.initialFlashcard2()" method="post">	
+		<input type="hidden" name="deckId" value="@deck.id">
+		<dt>
+			<a href="@routes.Decks.details(deck.id)">@deck.name</a> [ @deck.size ]
+			<button type="submit">OK</button>
+		</dt>	
+	</form>	
 	}
 </dl>
 }
