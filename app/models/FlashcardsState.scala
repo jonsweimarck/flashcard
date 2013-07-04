@@ -14,7 +14,7 @@ case class FlashcardsState (stateAsString: String)
 	
 	val deckSize = stateAsString.length()
 	
-    def getRandomUnshownIndex(): Integer = {
+    def getRandomUnshownIndex(): Int = {
       def charToLookFor = {
         if (unshownIndexLeft) '0'
         else '2'
