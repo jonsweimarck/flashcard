@@ -15,8 +15,8 @@
         var data = google.visualization.arrayToDataTable([
           ['Task', 'Hours per Day'],
           ['Kvar',     	@state.numberOfUnshownCards],
-          ['Klarade',  	@state.numberOfCardsShownOK],
-          ['Fel',  		@state.numberOfCardsShownNOK]
+          ['Klarade',  	@state.numberOfCardsOk],
+          ['Fel',  		@state.numberOfCardsNotOk]
         ]);
 
         var options = {

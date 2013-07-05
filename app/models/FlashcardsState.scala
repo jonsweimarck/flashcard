@@ -1,14 +1,11 @@
 package models
 
 import scala.util._
-
+import models.FlashcardsState._
 case class FlashcardsState (stateAsString: String) 
 {
-  val SingleFlashcardOK = "1"
-  val SingleFlashcardNOK = "2"
-  
-  // TODO Hur validera i konstruktorn? 
-  // - stateAsString måste vara bara nollor och ettor
+    // TODO Hur validera i konstruktorn? 
+  // - stateAsString maste vara bara nollor och ettor
   
 	val rand = new Random()
 	
@@ -16,11 +13,10 @@ case class FlashcardsState (stateAsString: String)
 	
     def getRandomUnshownIndex(): Int = {
       def charToLookFor = {
-        if (unshownIndexLeft) '0'
-        else '2'
+        if (unshownIndexLeft) Unshown
+        else NotOk
       }
     
-	  if (! validFor(deckSize)) throw new Exception("Flashcards and their state don't match")
 	  if ((! unshownIndexLeft) && (! onlyRetriesLeft)) throw new Exception("Nothing to show!")
 	  
 	  val index = rand.nextInt(stateAsString.length)
@@ -29,27 +25,39 @@ case class FlashcardsState (stateAsString: String)
     }
 	
   
-    def allFinished = stateAsString == ("1" * deckSize)
+    def allFinished = ! stateAsString.contains(Unshown) && ! stateAsString.contains(NotOk)
     
-    def onlyRetriesLeft = (! stateAsString.contains("0")) && stateAsString.contains("2")
-  
-	def validFor(deckSize: Integer) = stateAsString.length == deckSize
+    def onlyRetriesLeft = (! stateAsString.contains(Unshown)) && stateAsString.contains(NotOk)
+ 
+	def setShownOK(flashcardIndex: Integer): FlashcardsState = {
+      if (stateAsString.charAt(flashcardIndex) == Unshown) setIndividualState(flashcardIndex, OkAfterFirstTry)
+      else setIndividualState(flashcardIndex, OkAfterMultipleTries)
+    }
 	
-	def unshownIndexLeft = stateAsString.contains("0")
-	
-	def setShownOK(flashcardIndex: Integer): FlashcardsState = setShownState(flashcardIndex, SingleFlashcardOK)
-	
-    def setShownNOK(flashcardIndex: Integer): FlashcardsState = setShownState(flashcardIndex, SingleFlashcardNOK) 
+    def setShownNOK(flashcardIndex: Integer): FlashcardsState = setIndividualState(flashcardIndex, NotOk) 
     
-    def numberOfUnshownCards = stateAsString.count(_ == '0')
-    def numberOfCardsShownOK = stateAsString.count(_ == '1')
-    def numberOfCardsShownNOK = stateAsString.count(_ == '2')
+    def numberOfUnshownCards = stateAsString.count(_ == Unshown)
+    def numberOfCardsOk = numberOfCardsOkAfterFirstTry + numberOfCardsOkAfterMultipleTries
+    def numberOfCardsOkAfterFirstTry = stateAsString.count(_ == OkAfterFirstTry)
+    def numberOfCardsOkAfterMultipleTries = stateAsString.count(_ == OkAfterMultipleTries)
+    def numberOfCardsNotOk = stateAsString.count(_ == NotOk)
     
-    private def setShownState(flashcardIndex: Integer, state: String): FlashcardsState = {
+    private def setIndividualState(flashcardIndex: Integer, state: Char): FlashcardsState =
     	FlashcardsState(stateAsString.substring(0, flashcardIndex ) + state + stateAsString.substring(flashcardIndex +1))
-	} 
+	
+    private def validFor(deckSize: Integer) = stateAsString.length == deckSize
+	
+	private def unshownIndexLeft = stateAsString.contains(Unshown)
+
+
 }
+
 object FlashcardsState {
-    	def newInitialState(decksize: Integer) = FlashcardsState ("0" *  decksize)
+  val Unshown = '0'
+  val OkAfterFirstTry = '1'
+  val NotOk = '2'
+  val OkAfterMultipleTries = '3'
+  
+   def newInitialState(decksize: Integer) = FlashcardsState (Unshown.toString *  decksize)
 }
 	
