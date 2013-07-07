@@ -21,13 +21,33 @@
 
         var options = {
           //title: 'My Daily Activities', 
-          colors:['blue', 'green', 'red', '#004411']
+          colors:['blue', 'green', 'red', '#004411'],
+          backgroundColor: '#D0E7EF',
+          chartArea:{left:8,top:8,width:"90%",height:"90%"},
+          legend:{position:'none', },
+          reverseCategories:true
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
         chart.draw(data, options);
       }
     </script>
+    
+    	
+<script type="text/javascript">
+	var countdownTimer = setInterval('secondPassed()', 1000);
+	var seconds = 5;
+	function secondPassed() {
+    	document.getElementById('countdown').innerHTML = seconds;
+    	if (seconds == 0) {
+        	clearInterval(countdownTimer);
+        	document.getElementById('countdown').innerHTML = "Buzz Buzz";
+    	} else {
+        	seconds--;
+    	}
+	}
+ 
+</script>
     
 </head>
 <body>

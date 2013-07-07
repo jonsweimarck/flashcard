@@ -1,28 +1,15 @@
 @(deckId: Int, flashcard: Flashcard, currentState: FlashcardsState, postStateIfOK: FlashcardsState, postStateIfNOK: FlashcardsState, retries: Boolean)(implicit flash: Flash)
 @mainWithGraph(Messages("flascard.details", flashcard.id))(currentState) {
 
-<h2>
-	@flashcard.question
-</h2>
-<h2>
-	@flashcard.answer
-</h2>
-
 @if(retries){
-<h2> RETRIES </h2>
+  <h2> RETRIES </h2>
 }
-<dl class="dl-horizontal">
-<dt>@Messages("question"):</dt>
-<dd>@flashcard.question</dd>
-<dt>@Messages("answer"):</dt>
-<dd>@flashcard.answer</dd>
-<dt>post ok state</dt>
-<dd>@postStateIfOK.stateAsString</dd>
-<dt>post nok state</dt>
-<dd>@postStateIfNOK.stateAsString</dd>
-</dl>
 
-<div id="chart_div" style="width: 900px; height: 500px;"></div>
+<h2>
+	@flashcard.question @flashcard.answer
+</h2>
+
+<span id="countdown" class="timer"></span>
 
 
 <form action="@routes.Decks.nextFlashcardFromState2()" method="post">
@@ -37,5 +24,23 @@
 	<button type="submit">NOK</button>
 </form>
 
+<br/><br/>
+
+<div id="chart_div" style="width: 200px; height: 200px;"></div>
+
+
+
+
+
+<dl class="dl-horizontal">
+<dt>@Messages("question"):</dt>
+<dd>@flashcard.question</dd>
+<dt>@Messages("answer"):</dt>
+<dd>@flashcard.answer</dd>
+<dt>post ok state</dt>
+<dd>@postStateIfOK.stateAsString</dd>
+<dt>post nok state</dt>
+<dd>@postStateIfNOK.stateAsString</dd>
+</dl>
 
 }

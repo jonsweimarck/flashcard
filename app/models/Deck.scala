@@ -14,9 +14,18 @@ object Deck {
   
   def findById(id: Integer) = {decks.find(_.id == id)}
   
-  var lillaPlusCards = List (Flashcard(1, "1+1=", "2"),
-		  					Flashcard(2, "1+2=", "3"),
-		  					Flashcard(3, "1+3=", "4"))
+  var lillaPlusCards = List (Flashcard(1, "1+1 =", "2"),
+		  					Flashcard(2, "1+2 =", "3"),
+		  					Flashcard(3, "1+3 =", "4"),
+		  					Flashcard(4, "1+4 =", "5"),
+		  					Flashcard(5, "1+5 =", "6"),
+		  					Flashcard(6, "1+6 =", "7"),
+		  					Flashcard(7, "1+7 =", "8"),
+		  					Flashcard(8, "1+8 =", "9"),
+		  					Flashcard(9, "1+9 =", "10"),
+		  					Flashcard(10, "2+1 =", "3"),
+		  					Flashcard(11, "2+2 =", "4"),
+		  					Flashcard(12, "2+3 =", "5"))
 		  					
   var lillaMinusCards = List (Flashcard(4, "2-1=", "1"),
 		  					Flashcard(5, "3-1=", "2"),
