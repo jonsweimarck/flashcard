@@ -29,7 +29,7 @@ case class FlashcardsState (stateAsString: String)
     
     def onlyRetriesLeft = (! stateAsString.contains(Unshown)) && stateAsString.contains(NotOk)
  
-	def setShownOK(flashcardIndex: Integer): FlashcardsState = {
+	def setShownOK(flashcardIndex: Integer): FlashcardsState = { // TODO Anvand updated() instead!!!
       if (stateAsString.charAt(flashcardIndex) == Unshown) setIndividualState(flashcardIndex, OkAfterFirstTry)
       else setIndividualState(flashcardIndex, OkAfterMultipleTries)
     }
@@ -41,6 +41,13 @@ case class FlashcardsState (stateAsString: String)
     def numberOfCardsOkAfterFirstTry = stateAsString.count(_ == OkAfterFirstTry)
     def numberOfCardsOkAfterMultipleTries = stateAsString.count(_ == OkAfterMultipleTries)
     def numberOfCardsNotOk = stateAsString.count(_ == NotOk)
+    
+    def getCardIndexesWith(c: Char): List[Int] = {      
+      for{
+        charAndIndex: (Char, Int) <- stateAsString.toList.zipWithIndex
+        if(charAndIndex._1 == c)
+      } yield charAndIndex._2
+    }
     
     private def setIndividualState(flashcardIndex: Integer, state: Char): FlashcardsState =
     	FlashcardsState(stateAsString.substring(0, flashcardIndex ) + state + stateAsString.substring(flashcardIndex +1))

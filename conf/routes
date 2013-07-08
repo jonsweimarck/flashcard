@@ -13,10 +13,6 @@ GET 	/flashcard/new 					controllers.Flashcards.newFlashcard
 
 GET		/flashcard/:id					controllers.Flashcards.details(id: Integer)
 
-#GET		/deck/:id/nextflashcard/:state	controllers.Decks.nextFlashcardFromState(id: Int, state: String)
-
-#GET		/deck/:id/initialflashcard		controllers.Decks.initialFlashcard(id: Int)
-
 POST	/deck/initialFlashcard			controllers.Decks.initialFlashcard2
 
 GET		/flashcards						controllers.Flashcards.list

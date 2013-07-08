@@ -1,0 +1,16 @@
+@(deckName: String, finalState: FlashcardsState, retriedFlashcard: List[Flashcard])(implicit flash: Flash)
+@mainWithGraph(deckName)(finalState) {
+
+<h2>
+	Klar!
+</h2>
+
+<form action="@routes.Decks.list()" method="get">
+	<button type="submit">OK</button>
+</form>
+
+<br/><br/>
+
+<div id="chart_div" style="width: 200px; height: 200px;"></div>
+
+}

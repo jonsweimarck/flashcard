@@ -32,9 +32,10 @@ object Decks extends Controller {
   	      val deck: Deck = Deck.findById(stateParameters.deckId).getOrElse(throw new Exception("Can't find Deck with id " + stateParameters.deckId))
   	      val flashcardsState: FlashcardsState = FlashcardsState(stateParameters.flashcardsStateAsString)
   	      
-  	      if(flashcardsState.allFinished)  
-  	        Ok(views.html.decks.deckdetails(deck))
-  	      else {
+  	      if(flashcardsState.allFinished) {
+  	        val okAfterMultipleTries = deck.getFlashcardsByIndices(flashcardsState.getCardIndexesWith(FlashcardsState.OkAfterMultipleTries))
+  	        Ok(views.html.decks.finished(deck.name, flashcardsState, okAfterMultipleTries))
+  	      } else {
   	    	  val indexOfFlashCardToShow = flashcardsState.getRandomUnshownIndex()
 			  val newOKState = flashcardsState.setShownOK(indexOfFlashCardToShow)
 			  val newNOKState = flashcardsState.setShownNOK(indexOfFlashCardToShow)

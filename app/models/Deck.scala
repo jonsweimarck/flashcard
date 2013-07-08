@@ -5,7 +5,10 @@ case class Deck(id: Int, name: String, flashcards: List[Flashcard]) {
 
   def size = flashcards.size
   
-  def getFlashcardByIndex(flashCardIndex: Int): Flashcard =  flashcards(flashCardIndex)     
+  def getFlashcardByIndex(flashCardIndex: Int): Flashcard =  flashcards(flashCardIndex) 
+  
+  def getFlashcardsByIndices(flashCardIndicies: List[Int]): List[Flashcard] = 
+    flashcards.filter(f => flashCardIndicies.contains(f.id))
 }
 
 object Deck { 

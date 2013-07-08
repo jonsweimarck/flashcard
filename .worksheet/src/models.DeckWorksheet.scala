@@ -34,9 +34,18 @@ object DeckWorksheet {;import org.scalaide.worksheet.runtime.library.WorksheetSu
   };System.out.println("""getRandomUnshownFlashcard: (flashcardsState: String)models.Flashcard""");$skip(36); val res$0 = 
  
  getRandomUnshownFlashcard("000");System.out.println("""res0: models.Flashcard = """ + $show(res$0));$skip(34); val res$1 = 
- getRandomUnshownFlashcard("101");System.out.println("""res1: models.Flashcard = """ + $show(res$1))}
+ getRandomUnshownFlashcard("101");System.out.println("""res1: models.Flashcard = """ + $show(res$1));$skip(26); 
  
-
- 
+  
+  val s = "0123012";System.out.println("""s  : String = """ + $show(s ));$skip(19); 
+  val l = s.toList;System.out.println("""l  : List[Char] = """ + $show(l ));$skip(25); 
+  val z = l.zipWithIndex;System.out.println("""z  : List[(Char, Int)] = """ + $show(z ));$skip(51); val res$2 = 
+  
+ for{zi <- z
+   if(zi._1 == '1')
+ } yield zi._2;System.out.println("""res2: List[Int] = """ + $show(res$2))}
+   
+   
+  
   
 }
