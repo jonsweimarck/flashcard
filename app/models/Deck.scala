@@ -15,27 +15,24 @@ object Deck {
 
   def findAll = decks.toList
   
-  def findById(id: Integer) = {decks.find(_.id == id)}
+  def findById(id: Integer) = decks.find(_.id == id)
   
-  var lillaPlusCards = List (Flashcard(1, "1+1 =", "2"),
-		  					Flashcard(2, "1+2 =", "3"),
-		  					Flashcard(3, "1+3 =", "4"),
-		  					Flashcard(4, "1+4 =", "5"),
-		  					Flashcard(5, "1+5 =", "6"),
-		  					Flashcard(6, "1+6 =", "7"),
-		  					Flashcard(7, "1+7 =", "8"),
-		  					Flashcard(8, "1+8 =", "9"),
-		  					Flashcard(9, "1+9 =", "10"),
-		  					Flashcard(10, "2+1 =", "3"),
-		  					Flashcard(11, "2+2 =", "4"),
-		  					Flashcard(12, "2+3 =", "5"))
-		  					
-  var lillaMinusCards = List (Flashcard(4, "2-1=", "1"),
-		  					Flashcard(5, "3-1=", "2"),
-		  					Flashcard(6, "4-1=", "3"))
+   private var lillaPlusCards = {
+    var id = 0
+    for{i <- 0 to 10;
+    	j <- 0 to 10 if (i + j <= 10 || (i == 5 && j == 6) || (i == 6  && j == 5))
+    } yield { 
+      id = id + 1; 
+      Flashcard(id, i + "+" + j + " =", (i + j).toString)
+    }
+  }
+	  					
+  var lillaMinusCards = List (Flashcard(1, "2-1=", "1"),
+		  					Flashcard(2, "3-1=", "2"),
+		  					Flashcard(3, "4-1=", "3"))
   
-  var decks = Set(Deck(1, "Lilla plus", lillaPlusCards),
-		  	  	Deck(2, "Lilla minus", lillaMinusCards)) 
+  var decks = Set(Deck(1, "Lilla plus", lillaPlusCards.toList),
+		  	  	  Deck(2, "Lilla minus", lillaMinusCards)) 
 		  	  
 		  	  
 }

@@ -37,7 +37,7 @@ case class FlashcardsState (stateAsString: String)
     def setShownNOK(flashcardIndex: Integer): FlashcardsState = setIndividualState(flashcardIndex, NotOk) 
     
     def numberOfUnshownCards = stateAsString.count(_ == Unshown)
-    def numberOfCardsOk = numberOfCardsOkAfterFirstTry + numberOfCardsOkAfterMultipleTries
+    //def numberOfCardsOk = numberOfCardsOkAfterFirstTry + numberOfCardsOkAfterMultipleTries
     def numberOfCardsOkAfterFirstTry = stateAsString.count(_ == OkAfterFirstTry)
     def numberOfCardsOkAfterMultipleTries = stateAsString.count(_ == OkAfterMultipleTries)
     def numberOfCardsNotOk = stateAsString.count(_ == NotOk)

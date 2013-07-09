@@ -5,6 +5,11 @@
 	Klar!
 </h2>
 
+<div>Dessa kort hade du problem med</div>
+@for(card <- retriedFlashcard){
+   <div>@card.question @card.answer</div>
+}
+
 <form action="@routes.Decks.list()" method="get">
 	<button type="submit">OK</button>
 </form>

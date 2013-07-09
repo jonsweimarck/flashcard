@@ -15,13 +15,15 @@
         var data = google.visualization.arrayToDataTable([
           ['Task', 'Hours per Day'],
           ['Kvar',     	@state.numberOfUnshownCards],
-          ['Klarade',  	@state.numberOfCardsOk],
-          ['Fel',  		@state.numberOfCardsNotOk]
-        ]);
+          ['Klarade direkt',  	@state.numberOfCardsOkAfterFirstTry],
+          ['Fel',  		@state.numberOfCardsNotOk],
+          ['Klarade efter flera försök', @state.numberOfCardsOkAfterMultipleTries]
+        ]); 
 
         var options = {
           //title: 'My Daily Activities', 
-          colors:['blue', 'green', 'red', '#004411'],
+          //colors:['blue', 'green', 'red', '#004411'],
+          colors:['green','red','limegreen', 'blue'],
           backgroundColor: '#D0E7EF',
           chartArea:{left:8,top:8,width:"90%",height:"90%"},
           legend:{position:'none', },

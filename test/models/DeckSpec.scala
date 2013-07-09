@@ -26,5 +26,24 @@ class DeckSpec extends Specification {
       cards.size must be equalTo 1
     } 
   }
+  
+  "decks() 'lilla minus'" should {
+    
+    "return 68 cards" in {
+      Deck.findById(1).get.flashcards.size must be equalTo 68
+    }
+    
+    "return only two answers over 10" in {
+      val cards = Deck.findById(1).get.flashcards
+      val over10 = cards.filter(f => f.answer.toInt > 10)
+      over10.size must be equalTo 2
+      cards.foreach(println _)
+    }
+    
+    "return 2 cards with answer '11'" in {
+      val cards = Deck.findById(1).get.flashcards
+      cards.filter(f => f.answer.toInt == 11).size must be equalTo 2
+    }
+  }
 
 }
