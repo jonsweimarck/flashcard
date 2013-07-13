@@ -4,7 +4,8 @@
 <head>
 	<title>@title</title>
 	<link rel="stylesheet" type="text/css" media="screen" href='@routes.Assets.at("stylesheets/bootstrap.css")'>
-	<link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
+	<link rel="stylesheet" type="text/css" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
+	<link rel="stylesheet" type="text/css" media="screen" href="@routes.Assets.at("stylesheets/flipcard.css")">
 	
 	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <script type="text/javascript">
@@ -42,8 +43,7 @@
 	function secondPassed() {
     	document.getElementById('countdown').innerHTML = seconds;
     	if (seconds == 0) {
-        	clearInterval(countdownTimer);
-        	document.getElementById('countdown').innerHTML = "Buzz Buzz";
+        	flipCard();
     	} else {
         	seconds--;
     	}

@@ -4,43 +4,59 @@
 @if(retries){
   <h2> RETRIES </h2>
 }
+<div class="flipscene">
+	<div id="flipid" class="flip">
+		<div>
+			<p>
+				@flashcard.question @flashcard.answer
+			</p>
+		</div>
+		<div>
+			<p>
+				@flashcard.question
+			</p>
+		</div>
+	</div>
+</div>
 
-<h2>
-	@flashcard.question @flashcard.answer
-</h2>
+<div id="countdowntext">Kortet vänds om <span id="countdown" class="timer"></span> sekunder</div>
 
-<span id="countdown" class="timer"></span>
+<script type="text/javascript">
+    function flipCard()
+    {	
+    	clearInterval(countdownTimer);
+        document.getElementById("flipid").className += " flipping";
+        disableFlipbutton();
+        changeFliptext();
+    }
+    
+    
+    function disableFlipbutton()
+    {
+        document.getElementById("flipbutton").disabled = true; 
+    }
+    
+    function changeFliptext()
+    {
+        document.getElementById("countdowntext").innerHTML = 'Kortet vänt'; 
+    }
+</script>
 
+<div>
+	<span><button id="flipbutton" onclick="flipCard()">Vänd nu!</button>
 
-<form action="@routes.Decks.nextFlashcardFromState2()" method="post">
-	<input type="hidden" name="deckId" value="@deckId">
-	<input type="hidden" name="flashcardsStateAsString" value="@postStateIfOK.stateAsString"> 
-	<button type="submit">OK</button>
-</form>
-
-<form action="@routes.Decks.nextFlashcardFromState2()" method="post">
-	<input type="hidden" name="deckId" value="@deckId">
-	<input type="hidden" name="flashcardsStateAsString" value="@postStateIfNOK.stateAsString"> 
-	<button type="submit">NOK</button>
-</form>
-
-<br/><br/>
+	<form action="@routes.Decks.nextFlashcardFromState2()" method="post">
+		<input type="hidden" name="deckId" value="@deckId">
+		<input type="hidden" name="flashcardsStateAsString" value="@postStateIfOK.stateAsString"> 
+		<button type="submit">OK</button>
+	</form>
+	</span>
+	<form action="@routes.Decks.nextFlashcardFromState2()" method="post">
+		<input type="hidden" name="deckId" value="@deckId">
+		<input type="hidden" name="flashcardsStateAsString" value="@postStateIfNOK.stateAsString"> 
+		<button type="submit">NOK</button>
+	</form>
+</div>
 
 <div id="chart_div" style="width: 200px; height: 200px;"></div>
-
-
-
-
-
-<dl class="dl-horizontal">
-<dt>@Messages("question"):</dt>
-<dd>@flashcard.question</dd>
-<dt>@Messages("answer"):</dt>
-<dd>@flashcard.answer</dd>
-<dt>post ok state</dt>
-<dd>@postStateIfOK.stateAsString</dd>
-<dt>post nok state</dt>
-<dd>@postStateIfNOK.stateAsString</dd>
-</dl>
-
 }
