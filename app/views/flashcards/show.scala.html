@@ -4,59 +4,47 @@
 @if(retries){
   <h2> RETRIES </h2>
 }
-<div class="flipscene">
-	<div id="flipid" class="flip">
-		<div>
-			<p>
-				@flashcard.question @flashcard.answer
-			</p>
+
+<div class="row show-grid">
+   <div class="span4">
+		<div class="flipscene">
+			<div id="flipid" class="flip">
+				<div>
+					<p>
+						@flashcard.question @flashcard.answer
+					</p>
+				</div>
+				<div>
+					<p>
+						@flashcard.question
+					</p>
+				</div>
+			</div>
 		</div>
-		<div>
-			<p>
-				@flashcard.question
-			</p>
+		<div class="row show-grid">
+        	<div class="span4"> 
+				
+				<form class="form-inline" style="float: left; padding: 2px;" action="@routes.Decks.nextFlashcardFromState2()" method="post">
+					<input type="hidden" name="deckId" value="@deckId">
+					<input type="hidden" name="flashcardsStateAsString" value="@postStateIfOK.stateAsString">
+					<button class="btn" id="flipbutton" onclick="flipCard()">Vänd nu!</button> 
+					<button class="btn btn-success" type="submit">Rätt</button>
+				</form>
+
+				<form class="form-inline" style="float: left; padding: 2px;" action="@routes.Decks.nextFlashcardFromState2()" method="post">
+					<input type="hidden" name="deckId" value="@deckId">
+					<input type="hidden" name="flashcardsStateAsString" value="@postStateIfNOK.stateAsString"> 
+					<button class="btn btn-danger" type="submit">Fel</button>
+				</form>
+			</div>
 		</div>
-	</div>
+		
+   </div>
+  
+   <div class="span3">
+		<div id="chart_div" style="width: 180px; height: 180px;"></div>
+   </div> 
+    <div class="span5">Hello 3</div>
 </div>
 
-<div id="countdowntext">Kortet vänds om <span id="countdown" class="timer"></span> sekunder</div>
-
-<script type="text/javascript">
-    function flipCard()
-    {	
-    	clearInterval(countdownTimer);
-        document.getElementById("flipid").className += " flipping";
-        disableFlipbutton();
-        changeFliptext();
-    }
-    
-    
-    function disableFlipbutton()
-    {
-        document.getElementById("flipbutton").disabled = true; 
-    }
-    
-    function changeFliptext()
-    {
-        document.getElementById("countdowntext").innerHTML = 'Kortet vänt'; 
-    }
-</script>
-
-<div>
-	<span><button id="flipbutton" onclick="flipCard()">Vänd nu!</button>
-
-	<form action="@routes.Decks.nextFlashcardFromState2()" method="post">
-		<input type="hidden" name="deckId" value="@deckId">
-		<input type="hidden" name="flashcardsStateAsString" value="@postStateIfOK.stateAsString"> 
-		<button type="submit">OK</button>
-	</form>
-	</span>
-	<form action="@routes.Decks.nextFlashcardFromState2()" method="post">
-		<input type="hidden" name="deckId" value="@deckId">
-		<input type="hidden" name="flashcardsStateAsString" value="@postStateIfNOK.stateAsString"> 
-		<button type="submit">NOK</button>
-	</form>
-</div>
-
-<div id="chart_div" style="width: 200px; height: 200px;"></div>
 }

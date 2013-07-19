@@ -2,9 +2,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 	<title>@title</title>
 	<link rel="stylesheet" type="text/css" media="screen" href='@routes.Assets.at("stylesheets/bootstrap.css")'>
-	<link rel="stylesheet" type="text/css" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
+	<link rel="stylesheet" type="text/css" media="screen" href='@routes.Assets.at("stylesheets/bootstrap-responsive.css.css")'>
+	<link rel="stylesheet" type="text/css" media="screen" href='@routes.Assets.at("stylesheets/docs.css")'>
 	<link rel="stylesheet" type="text/css" media="screen" href="@routes.Assets.at("stylesheets/flipcard.css")">
 	
 	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
@@ -23,10 +25,10 @@
 
         var options = {
           //title: 'My Daily Activities', 
-          //colors:['blue', 'green', 'red', '#004411'],
           colors:['green','red','limegreen', 'blue'],
           backgroundColor: '#D0E7EF',
-          chartArea:{left:8,top:8,width:"90%",height:"90%"},
+          chartArea:{left:8,top:8,width:"91%",height:"91%"},
+          //chartArea:{left:0,top:0,width:"100%",height:"100%"},
           legend:{position:'none', },
           reverseCategories:true
         };
@@ -41,45 +43,41 @@
 	var countdownTimer = setInterval('secondPassed()', 1000);
 	var seconds = 5;
 	function secondPassed() {
-    	document.getElementById('countdown').innerHTML = seconds;
+    	//document.getElementById('countdown').innerHTML = seconds;
+    	document.getElementById('flipbutton').innerHTML = "Vänd nu! (" + seconds + ")";
+    	
     	if (seconds == 0) {
         	flipCard();
     	} else {
         	seconds--;
     	}
 	}
+	
+	function flipCard()
+    {	
+    	clearInterval(countdownTimer);
+        document.getElementById("flipid").className += " flipping";
+        disableFlipbutton();
+        //changeFliptext();
+    }
+    
+    
+    function disableFlipbutton()
+    {
+        document.getElementById("flipbutton").disabled = true; 
+    }
+    
+    function changeFliptext()
+    {
+        document.getElementById("countdowntext").innerHTML = 'Kortet vänt'; 
+    }
  
 </script>
     
 </head>
 <body>
-<div class="screenshot">
-	<div class="navbar navbar-fixed-top">
-		<div class="navbar-inner">
-			<div class="container">
-				<a class="brand" href="@routes.Application.index()"> @title</a>
-			</div>
-		</div>
-	</div>
-	
 	<div class="container">	
-		@if(flash.get("success").isDefined){
-			<div class="alert alert-success">
-				@flash.get("success")
-			</div>
-		}
-
-		@if(flash.get("error").isDefined){
-			<div class="alert alert-error">
-				@flash.get("error")
-			</div>
-		}
-		@content
-		@debug()
+       @content  
 	</div>
-	
-</div>
-
-
 </body>
 </html>
