@@ -2,16 +2,21 @@
 @mainWithGraph(deckName)(finalState) {
 
 <h2>
-	Klar!
+	Klar! @retriedFlashcard.size
 </h2>
-
-<div>Dessa kort hade du problem med</div>
-@for(card <- retriedFlashcard){
-   <div>@card.question @card.answer</div>
+@if(retriedFlashcard.size > 0) {
+  <p>Dessa kort hade du problem med:</p>
+  @for(card <- retriedFlashcard){
+    <div>@card.question @card.answer</div>
+  }
+} else {
+ <p> Du klarade alla kort utan fel! </p>
 }
 
+<br/>
+
 <form action="@routes.Decks.list()" method="get">
-	<button type="submit">OK</button>
+	<button class="btn" type="submit">Ok</button>
 </form>
 
 <br/><br/>

@@ -11,10 +11,12 @@
 			<form action="@routes.Decks.initialFlashcard2()" method="post">	
 			<input type="hidden" name="deckId" value="@deck.id">
 			<td>
-				<a href="@routes.Decks.details(deck.id)">@deck.name</a> (@deck.size kort)
+		        <a href="@routes.Decks.details(deck.id)">@deck.name</a>
 			</td>
 			<td>
-				<button type="submit">OK</button>
+			    @deck.size kort</td>
+			<td>
+		        <button class="btn" type="submit">Välj</button>
 			</td>	
 		    </form>
 		  </tr>	
