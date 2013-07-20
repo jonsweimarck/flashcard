@@ -44,13 +44,14 @@
 .flip div p {
     color: #000000;
     //text-shadow: 0 0 1px .111;
-    padding-top: 75px;
+    padding-top: 65px;
     text-align: center;
     font-size: xx-large;
 }
 .flip {
-    width: 220px;
+    width: 218px;
     height: 150px;
+    margin-left:4px;
     /*border-radius*/
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;

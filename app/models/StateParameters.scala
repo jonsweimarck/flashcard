@@ -1,3 +1,3 @@
 package models
 
-case class StateParameters (deckId: Int, flashcardsStateAsString: String)
+case class StateParameters (deckId: Int, flashcardsStateAsString: String, retriesHasStarted: Boolean)

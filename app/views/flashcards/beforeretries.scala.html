@@ -1,0 +1,17 @@
+@(deckId: Int, currentState: FlashcardsState)(implicit flash: Flash)
+@mainWithGraph(Messages("flascard.details", -1))(currentState) {
+
+
+  <h2> Bravo! </h2>
+  <p>Alla kort är visade! Du hade fel på ett eller flera av dem, vi tar om dem nu!</p>
+
+
+	<form class="form-inline" style="float: left; padding: 2px;" action="@routes.Decks.nextFlashcardFromState2()" method="post">
+		<input type="hidden" name="deckId" value="@deckId">
+		<input type="hidden" name="retriesHasStarted" value="true">
+		<input type="hidden" name="flashcardsStateAsString" value="@currentState.stateAsString">
+		<button class="btn" type="submit">Ok</button>
+	</form>
+
+
+}

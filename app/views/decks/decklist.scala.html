@@ -1,16 +1,26 @@
 @(decks: List[Deck])(implicit flash: Flash)
 
 @main(Messages("deck.list", decks.size)) {
-  
-<dl class="products">
-	@for(deck <- decks) {
-		<form action="@routes.Decks.initialFlashcard2()" method="post">	
-		<input type="hidden" name="deckId" value="@deck.id">
-		<dt>
-			<a href="@routes.Decks.details(deck.id)">@deck.name</a> [ @deck.size ]
-			<button type="submit">OK</button>
-		</dt>	
-	</form>	
-	}
-</dl>
+ 
+<div class="row show-grid">
+  <div class="span4"> 
+	<table class="table">
+	  <tbody>
+		@for(deck <- decks) {
+		  <tr>
+			<form action="@routes.Decks.initialFlashcard2()" method="post">	
+			<input type="hidden" name="deckId" value="@deck.id">
+			<td>
+				<a href="@routes.Decks.details(deck.id)">@deck.name</a> (@deck.size kort)
+			</td>
+			<td>
+				<button type="submit">OK</button>
+			</td>	
+		    </form>
+		  </tr>	
+		}
+	  </tbody>	
+	</table>
+  </div>
+</div>	
 }

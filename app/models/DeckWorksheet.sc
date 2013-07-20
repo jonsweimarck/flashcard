@@ -17,7 +17,7 @@ object DeckWorksheet {
   newState("00000", 5, 0)
   newState("02020", 5, 2)
 */
-	val rand = new Random()                   //> rand  : scala.util.Random = scala.util.Random@79de256f
+	val rand = new Random()                   //> rand  : scala.util.Random = scala.util.Random@47315d34
 	val flashcards = List (Flashcard(0, "1+1=", "2"), Flashcard(1, "1+2=", "3"),Flashcard(2, "1+3=", "4"))
                                                   //> flashcards  : List[models.Flashcard] = List(Flashcard(0,1+1=,2), Flashcard(1
                                                   //| ,1+2=,3), Flashcard(2,1+3=,4))
@@ -35,7 +35,7 @@ object DeckWorksheet {
     flashcards(flashIndex)
   }                                               //> getRandomUnshownFlashcard: (flashcardsState: String)models.Flashcard
  
- getRandomUnshownFlashcard("000")                 //> res0: models.Flashcard = Flashcard(2,1+3=,4)
+ getRandomUnshownFlashcard("000")                 //> res0: models.Flashcard = Flashcard(1,1+2=,3)
  getRandomUnshownFlashcard("101")                 //> res1: models.Flashcard = Flashcard(1,1+2=,3)
  
   
@@ -48,7 +48,8 @@ object DeckWorksheet {
    if(zi._1 == '1')
  } yield zi._2                                    //> res2: List[Int] = List(1, 5)
    
-   
+ val b = "true".toBoolean                         //> b  : Boolean = true
+  
   
   
 }

@@ -1,9 +1,5 @@
-@(deckId: Int, flashcard: Flashcard, currentState: FlashcardsState, postStateIfOK: FlashcardsState, postStateIfNOK: FlashcardsState, retries: Boolean)(implicit flash: Flash)
+@(deckId: Int, flashcard: Flashcard, currentState: FlashcardsState, postStateIfOK: FlashcardsState, postStateIfNOK: FlashcardsState, retries: Boolean, retriesHasStarted: Boolean)(implicit flash: Flash)
 @mainWithGraph(Messages("flascard.details", flashcard.id))(currentState) {
-
-@if(retries){
-  <h2> RETRIES </h2>
-}
 
 <div class="row show-grid">
    <div class="span4">
@@ -26,6 +22,7 @@
 				
 				<form class="form-inline" style="float: left; padding: 2px;" action="@routes.Decks.nextFlashcardFromState2()" method="post">
 					<input type="hidden" name="deckId" value="@deckId">
+					<input type="hidden" name="retriesHasStarted" value="@retriesHasStarted">
 					<input type="hidden" name="flashcardsStateAsString" value="@postStateIfOK.stateAsString">
 					<button class="btn" id="flipbutton" onclick="flipCard()">Vänd nu!</button> 
 					<button class="btn btn-success" type="submit">Rätt</button>
@@ -33,6 +30,7 @@
 
 				<form class="form-inline" style="float: left; padding: 2px;" action="@routes.Decks.nextFlashcardFromState2()" method="post">
 					<input type="hidden" name="deckId" value="@deckId">
+					<input type="hidden" name="retriesHasStarted" value="@retriesHasStarted">
 					<input type="hidden" name="flashcardsStateAsString" value="@postStateIfNOK.stateAsString"> 
 					<button class="btn btn-danger" type="submit">Fel</button>
 				</form>
@@ -41,10 +39,10 @@
 		
    </div>
   
-   <div class="span3">
+   <div class="span4">
 		<div id="chart_div" style="width: 180px; height: 180px;"></div>
    </div> 
-    <div class="span5">Hello 3</div>
+    <div class="span4"/>
 </div>
 
 }
