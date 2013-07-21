@@ -1,26 +1,35 @@
 @(deckName: String, finalState: FlashcardsState, retriedFlashcard: List[Flashcard])(implicit flash: Flash)
 @mainWithGraph(deckName)(finalState) {
 
-<h2>
-	Klar! @retriedFlashcard.size
-</h2>
-@if(retriedFlashcard.size > 0) {
-  <p>Dessa kort hade du problem med:</p>
-  @for(card <- retriedFlashcard){
-    <div>@card.question @card.answer</div>
-  }
-} else {
- <p> Du klarade alla kort utan fel! </p>
-}
+<div class="row show-grid">
+   <div class="span4">
+		<h2>
+			Klar!
+		</h2>
+		@if(retriedFlashcard.size > 0) {
+		  <p>Du hade bara fel på:</p>
+		  @for(card <- retriedFlashcard){
+		    <div>@card.question @card.answer</div>
+		  }
+		} else {
+		 <p> Du klarade alla kort utan fel! </p>
+		}
+		<br/>
+		<div class="row show-grid">
+		  <div class="span4"> 
+			<form action="@routes.Decks.list()" method="get">
+				<button class="btn" type="submit">Ok</button>
+			</form>
 
-<br/>
-
-<form action="@routes.Decks.list()" method="get">
-	<button class="btn" type="submit">Ok</button>
-</form>
-
-<br/><br/>
-
-<div id="chart_div" style="width: 200px; height: 200px;"></div>
+			</div>
+		</div>
+		
+   </div>
+  
+   <div class="span4">
+		<div id="chart_div" style="width: 180px; height: 180px;"></div>
+   </div> 
+    <div class="span4"/>
+</div>
 
 }

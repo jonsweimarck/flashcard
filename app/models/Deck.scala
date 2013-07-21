@@ -27,9 +27,9 @@ object Deck {
     }
   }
 	  					
-  var lillaMinusCards = List (Flashcard(1, "2-1=", "1"),
-		  					Flashcard(2, "3-1=", "2"),
-		  					Flashcard(3, "4-1=", "3"))
+  var lillaMinusCards = List (Flashcard(0, "1+0=", "1"),
+		  					Flashcard(1, "2+0=", "2"),
+		  					Flashcard(2, "3+0=", "3"))
   
   var decks = Set(Deck(1, "Lilla plus", lillaPlusCards.toList),
 		  	  	  Deck(2, "Lilla minus", lillaMinusCards)) 
