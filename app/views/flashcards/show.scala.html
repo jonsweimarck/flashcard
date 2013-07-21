@@ -2,7 +2,7 @@
 @mainWithGraph(Messages("flascard.details", flashcard.id))(currentState) {
 
 <div class="row show-grid">
-   <div class="span4">
+   <div class="span4 half">
 		<div class="flipscene">
 			<div id="flipid" class="flip">
 				<div>
@@ -18,7 +18,7 @@
 			</div>
 		</div>
 		<div class="row show-grid">
-        	<div class="span4"> 
+        	<div class="span4 half"> 
 				
 				<form class="form-inline" style="float: left; padding: 2px;" action="@routes.Decks.nextFlashcardFromState2()" method="post">
 					<input type="hidden" name="deckId" value="@deckId">
@@ -39,7 +39,7 @@
 		
    </div>
   
-   <div class="span4">
+   <div class="span4 half">
 		<div id="chart_div" style="width: 180px; height: 180px;"></div>
    </div> 
     <div class="span4"/>

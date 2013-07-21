@@ -1,12 +1,20 @@
-body { 
-	color:black; 
+@media all and (max-width: 480px)  {
+    .half {
+        float: left !important;
+        width: 50% !important;
+    }
 }
-body, p, label { 
-	font-size:15px; 
-}
-.label { 
-	font-size:13px; line-height:16px; 
-}
+
+
+//body { 
+//	color:black; 
+//}
+//body, p, label { 
+//	font-size:15px; 
+//}
+//.label { 
+//	font-size:13px; line-height:16px; 
+//}
 .alert-info { 
 	border-color:transparent; 
 	background-color:#3A87AD;
@@ -29,20 +37,19 @@ div.screenshot {
 .navbar-fixed-top, .navbar-fixed-bottom { 
 	position:relative; 
 }
-h1 { 
-	font-size:125%; 
-}
-table { 
-	border-collapse: collapse; width:100%; 
-}
-th, td { 
-	text-align:left; padding: 0.3em 0;
-	border-bottom: 1px solid white; 
-}
-tr.odd td { }
-form { 
-	float:left; margin-right: 1em; 
-}
+//h1 { 
+//	font-size:125%; 
+//}
+//able { 
+//	border-collapse: collapse; width:100%; 
+//}
+//th, td { 
+//	text-align:left; padding: 0.3em 0;//	border-bottom: 1px solid white; 
+//}
+//tr.odd td { }
+//form { 
+//	float:left; margin-right: 1em; 
+//}
 legend { border: none; }
 fieldset > div { margin: 12px 0; }
 .help-block { display: inline; vertical-align: middle; }
