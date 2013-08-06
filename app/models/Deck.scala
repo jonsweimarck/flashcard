@@ -31,8 +31,9 @@ object Deck {
 		  					Flashcard(1, "2+0=", "2"),
 		  					Flashcard(2, "3+0=", "3"))
   
-  var decks = Set(Deck(1, "Lilla plus", lillaPlusCards.toList),
-		  	  	  Deck(2, "Lilla minus", lillaMinusCards)) 
+  var decks = Set(Deck(1, "Lilla plus", lillaPlusCards.toList)
+//		  	  	  ,Deck(2, "Lilla minus", lillaMinusCards)
+		  	  	  ) 
 		  	  
 		  	  
 }
