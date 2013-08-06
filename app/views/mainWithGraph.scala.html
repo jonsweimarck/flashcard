@@ -51,7 +51,7 @@
     	document.getElementById('flipbutton').innerHTML = "Vänd nu! (" + seconds + ")";
     	
     	if (seconds == 0) {
-        	flipCard();
+        	flipCard();   
     	} else {
         	seconds--;
     	}
@@ -60,7 +60,7 @@
 	function flipCard()
     {	
     	clearInterval(countdownTimer);
-        document.getElementById("flipid").className += " flipping";
+        //document.getElementById("flipid").className += " flipping";   -- Kalle gillar inte detta ...
         disableFlipbutton();
         //changeFliptext();
     }
