@@ -2,6 +2,7 @@
 
 @main(Messages("deck.list", decks.size)) {
  
+ <h2>Välj kortlek</h2>
 <div class="row show-grid">
   <div class="span4"> 
 	<table class="table">
@@ -11,7 +12,7 @@
 			<form action="@routes.Decks.initialFlashcard2()" method="post">	
 			<input type="hidden" name="deckId" value="@deck.id">
 			<td>
-		        <a href="@routes.Decks.details(deck.id)">@deck.name</a>
+		        @deck.name
 			</td>
 			<td>
 			    @deck.size kort</td>
@@ -25,4 +26,21 @@
 	</table>
   </div>
 </div>	
+
+<div class="row show-grid">
+  <div class="span4"> 
+  <h2>Hjälp</h2>
+  <p>När du valt vilken kortlek du vill träna på kommer korten att visas en efter en i slumpmässig ordning. 
+  Korten visas med frågesidan uppåt, till exempel "5 + 4 = ". 
+  </p><p>
+  Under kortet finns tre knappar. Med den första knappen ("Vänd nu!") vänds kortet så att svaret visas. 
+  Den andra knappen ("Rätt") trycker du på om du klarade av kortet, och den tredje knappen ("Fel") trycker du på om du inte klarade av kortet.
+  </p><p>
+  Om du inte trycker på "vänd"-knappen kommer kortet ändå att vändas efter 5 sekunder.
+  </p><p>
+  När alla kort har visas kommer de kort du inte klarade av att visas igen. 
+  När du tryckt på "Rätt"-knappen på alla kort visas vilka kort du hade probelem med och fick testa flera gånger. 
+  </p>
+  </div>
+</div>
 }
