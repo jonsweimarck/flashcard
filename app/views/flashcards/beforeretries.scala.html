@@ -2,7 +2,7 @@
 @mainWithGraph(Messages("flascard.details", -1))(currentState) {
 
 <div class="row show-grid">
-   <div class="span4">
+   <div class="span4 half">
 	  <h2> Bravo! </h2>
 	  <p>
 	  Alla kort är visade!<br/>
@@ -16,7 +16,7 @@
 	  
 	  </p>
 		<div class="row show-grid">
-        	<div class="span4"> 
+        	<div class="span4" half> 
 
 				<form class="form-inline" style="float: left; padding: 2px;" action="@routes.Decks.nextFlashcardFromState2()" method="post">
 					<input type="hidden" name="deckId" value="@deckId">
@@ -29,10 +29,10 @@
 		
    </div>
   
-   <div class="span4">
+   <div class="span4 half">
 		<div id="chart_div" style="width: 180px; height: 180px;"></div>
    </div> 
-    <div class="span4"/>
+    <div class="span4 half"/>
 </div>
 
 }
