@@ -4,8 +4,8 @@ import play.api._
 import play.api.mvc._
 
 object Application extends Controller {
-	def index = Action {
-		Redirect(routes.Decks.list())
+  	def index = Action { implicit request => 
+	    Ok(views.html.index())
 	}
   
 }

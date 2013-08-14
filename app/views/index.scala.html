@@ -1,7 +1,48 @@
-@(message: String)(implicit flash: Flash)
+@()(implicit flash: Flash)
 
-@main("Welcome to Play 2.1") {
-    
-    @play20.welcome(message)
-    
+@main("mattekort.se") {
+<div class="row show-grid">
+  <div class="span4"> 
+	<center>Välkommen till
+	<h2>mattekort.se</h2></center>
+  </div>
+</div>
+
+<div class="row show-grid">
+  <div class="span4"> 
+	<p>
+		Här kan du träna grundläggande matematik för årkurs ett (och efter hand årkurs två) med hjälp av frågekort.
+		<br>Vet du redan hur mattekort.se fungerar så kan du börja direkt genom att trycka på knappen nedan, 
+		vill du veta lite mer först, så fortsätt bara att läsa!
+		<div><a class="btn" href="@routes.Decks.list()">Börja</a></div>
+	</p>
+	<p>
+	<center><h3>Hur det fungerar</h3></center>
+		Varje frågekort har en fråga på framsidan och svaret på baksidan. Frågekorten kommer att visas
+		en efter en i slumpmässig ordning med frågesidan uppåt, till exempel "5 + 3 = "
+	</p>	
+	<p>
+		Du behöver inte skriva in svaret på datorn, det räcker med att du tänker ut det och säger det för dig själv. 
+		Efter fem sekunder kommer kortet att vändas, då kan du se om du hade rätt! 
+	</p>
+	<p>
+		Under kortet finns tre knappar. Med den första knappen ("Vänd nu!") kan du själv vända kortet om du inte vill vänta fem sekunder. 
+	  	Den andra knappen ("Rätt") trycker du på om du tycker att du klarade av frågan, 
+	  	och den tredje knappen ("Fel") trycker du på om du inte tycker att du klarade av frågan.
+	  	Så fort du tryckt på "Rätt" eller "Fel" visas nästa kort.
+	 </p>
+	 <p>
+	  	När alla kort har visas kommer de kort du där du inte klarade frågan att visas igen tills du kan även de. 
+	  	När du till sist har tryckt på "Rätt"-knappen på alla kort visas vilka kort du hade problem med och fick testa flera gånger. 
+	  </p>
+	  <p>
+	  	Korten ligger samlade i olika högar med en kort förklaring av vilka kort högen innehåller, 
+	  	till exempel högen "Lilla plus".
+	  </p>
+	  <p>
+	  	När du trycker på börja-knappen nedan kommer du till en lista där du kan välja vilken korthög du vill träna på. Lycka till!
+	  	<div><a class="btn" href="@routes.Decks.list()">Börja</a></div>
+	  </p>
+  </div>
+</div>
 }
