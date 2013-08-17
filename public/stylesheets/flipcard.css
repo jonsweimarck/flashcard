@@ -1,88 +1,141 @@
+        
+        .flipscene {
+            display: block;
+            margin-top: 10px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            /*border-radius*/
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 5px;
+            /*perspective*/
+            -webkit-perspective: 500px;
+            -moz-perspective: 500px;
+            -ms-perspective: 500px;
+            -o-perspective: 500px;
+            perspective: 500px;
+        }
+        
+        .panel {
+            width: 218px;
+            height: 150px;
+            margin: 4px;
+            position: relative;
+        }
+        
+        .panel div p {
+            color: #000000;
+            padding-top: 58px;
+            text-align: center;
+            font-size: xx-large;    
+         }
+        
+        /* -- make sure to declare a default for every property that you want animated -- */
+        /* -- general styles, including Y axis rotation -- */
+        .panel .front {
+            float: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 900;
+            width: inherit;
+            height: inherit;
+            background: #EEE;
+            
+            /*border-radius*/
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 5px;
+            
+            /*box-shadow*/
+            -webkit-box-shadow: 0 0 15px rgba(0,0,0,0.2);            
+           -moz-box-shadow: 0 0 15px rgba(0,0,0,0.2);
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
 
-.flipscene {
-    display: block;
-    //float: left;
-    //margin: 10px;
-    margin-top: 10px;
-    margin-right: 10px;
-    margin-bottom: 10px;
-    /*border-radius*/
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-    /*perspective*/
-    -webkit-perspective: 500px;
-    -moz-perspective: 500px;
-    -ms-perspective: 500px;
-    -o-perspective: 500px;
-    perspective: 500px;
-}
-.flip div {
-    position: absolute;
-    width: 220px;
-    height: 150px;
-    /*border-radius*/
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-	background: #EEE;
-    /*backface-visibility*/
-    -webkit-backface-visibility: hidden;
-    -moz-backface-visibility: hidden;
-    -ms-backface-visibility: hidden;
-    -o-backface-visibility: hidden;
-    backface-visibility: hidden;
-}
-.flip div:first-child {
-    /*transform*/
-    -webkit-transform: rotateY(-180deg);
-    -moz-transform: rotateY(-180deg);
-    -ms-transform: rotateY(-180deg);
-    -o-transform: rotateY(-180deg);
-    transform: rotateY(-180deg);
-}
+            -webkit-transform: rotateX(0deg) rotateY(0deg);
+            -webkit-transform-style: preserve-3d;
+            -webkit-backface-visibility: hidden;
 
+            -moz-transform: rotateX(0deg) rotateY(0deg);
+            -moz-transform-style: preserve-3d;
+            -moz-backface-visibility: hidden;
 
+            /* -- transition is the magic sauce for animation -- */
+            -o-transition: all .4s ease-in-out;
+            -ms-transition: all .4s ease-in-out;
+            -moz-transition: all .4s ease-in-out;
+            -webkit-transition: all .4s ease-in-out;
+            transition: all .4s ease-in-out;
+        }
+        
+        .panel.flip .front {
+            z-index: 900;
+            background: #EEE;
 
-.flip {
-    width: 218px;
-    height: 150px;
-    margin-left:4px;
-    /*border-radius*/
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-    /*box-shadow*/
-    -webkit-box-shadow: 0 0 15px rgba(0,0,0,0.3);
-    -moz-box-shadow: 0 0 15px rgba(0,0,0,0.3);
-    box-shadow: 0 0 15px rgba(0,0,0,0.3);
-    /*transform*/
-    -webkit-transform: rotateX(0deg);
-    -moz-transform: rotateX(0deg);
-    -ms-transform: rotateX(0deg);
-    -o-transform: rotateX(0deg);
-    transform: rotateX(0deg);
-    /*transition*/
-    -webkit-transition: all 1s ease;
-    -moz-transition: all 1s ease;
-    -o-transition: all 1s ease;
-    transition: all 1s ease;
-    /*transform-style*/
-    -webkit-transform-style: preserve-3d;
-    -moz-transform-style: preserve-3d;
-    -ms-transform-style: preserve-3d;
-    -o-transform-style: preserve-3d;
-    transform-style: preserve-3d;
-}
+            -webkit-transform: rotateX(180deg);             
+            -moz-transform: rotateX(180deg);            
+        }
+        
+        .panel .back {
+            float: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 800;
+            width: inherit;
+            height: inherit;
+            background: #EEE;
+            
+            /*border-radius*/
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 5px;
+            
+            /*box-shadow*/
+            -webkit-box-shadow: 0 0 15px rgba(0,0,0,0.2); 
+            -moz-box-shadow: 0 0 15px rgba(0,0,0,0.2);
+            box-shadow: 0 0 15px rgba(0,0,0,0.2); 
+            
+            -webkit-transform: rotateX(-180deg);
+            -webkit-transform-style: preserve-3d;
+            -webkit-backface-visibility: hidden;
 
+            -moz-transform: rotateX(-180deg);
+            -moz-transform-style: preserve-3d;
+            -moz-backface-visibility: hidden;
 
-.flipping {
+            /* -- transition is the magic sauce for animation -- */
+            -o-transition: all .4s ease-in-out;
+            -ms-transition: all .4s ease-in-out;
+            -moz-transition: all .4s ease-in-out;
+            -webkit-transition: all .4s ease-in-out;
+            transition: all .4s ease-in-out;
+        }
+        
+        .panel.flip .back {
+            z-index: 1000;
+            background: #EEE;
 
-    z-index: - 1000;
-    /*transform*/
-    -webkit-transform: rotateY(-180deg);
-    -moz-transform: rotateY(-180deg);
-    //-ms-transform: rotateY(-180deg);
-    -o-transform: rotateY(-180deg);
-    //transform: rotateY(-180deg);
-}
+            -webkit-transform: rotateX(0deg) rotateY(0deg);
+            -moz-transform: rotateX(0deg) rotateY(0deg);
+        }
+        
+        /* -- X axis rotation for click panel -- */
+        .click .front {
+            cursor: pointer;
+            -webkit-transform: rotateY(0deg);
+            -moz-transform: rotateY(0deg);  
+        }
+        .click.flip .front {
+            -webkit-transform: rotateY(180deg);
+            -moz-transform: rotateY(180deg);
+        }
+        .click .back {
+            cursor: pointer;
+            -webkit-transform: rotateY(-180deg);
+            -moz-transform: rotateY(-180deg);
+        }
+        .click.flip .back {
+            -webkit-transform: rotateY(0deg);
+            -moz-transform: rotateY(0deg);
+        }
