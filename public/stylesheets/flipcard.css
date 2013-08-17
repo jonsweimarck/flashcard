@@ -41,13 +41,9 @@
     -o-transform: rotateY(-180deg);
     transform: rotateY(-180deg);
 }
-.flip div p {
-    color: #000000;
-    //text-shadow: 0 0 1px .111;
-    padding-top: 65px;
-    text-align: center;
-    font-size: xx-large;
-}
+
+
+
 .flip {
     width: 218px;
     height: 150px;
@@ -78,20 +74,15 @@
     -o-transform-style: preserve-3d;
     transform-style: preserve-3d;
 }
-//.flipscene:hover .flip {
-//    /*transform*/
-//    -webkit-transform: rotateY(-180deg);
-//    -moz-transform: rotateY(-180deg);
-//    -ms-transform: rotateY(-180deg);
-//    -o-transform: rotateY(-180deg);
-//    transform: rotateY(-180deg);
-//}
+
 
 .flipping {
+
+    z-index: - 1000;
     /*transform*/
     -webkit-transform: rotateY(-180deg);
     -moz-transform: rotateY(-180deg);
-    -ms-transform: rotateY(-180deg);
+    //-ms-transform: rotateY(-180deg);
     -o-transform: rotateY(-180deg);
-    transform: rotateY(-180deg);
+    //transform: rotateY(-180deg);
 }
