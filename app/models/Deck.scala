@@ -1,7 +1,7 @@
 package models
 import scala.util.Random
 
-case class Deck(id: Int, name: String, flashcards: List[Flashcard]) {
+case class Deck(id: Int, name: String, desc: String, flashcards: List[Flashcard]) {
 
   def size = flashcards.size
   
@@ -41,9 +41,9 @@ object Deck {
 		  					Flashcard(1, "2+0=", "2"),
 		  					Flashcard(2, "3+0=", "3"))
   
-  var decks = Set(Deck(1, "Lilla plus", lillaPlusCards.toList),
-		  	  	  Deck(2, "Lilla minus", lillaMinusCards.toList)
-		  	  	 // ,Deck(3, "test", testCards    )
+  var decks = Set(Deck(1, "Lilla plus", "Två termer vars summa inte överstiger 10, förutom 5 + 6 och 6 + 5. Exempel 3 + 5 = 8", lillaPlusCards.toList),
+		  	  	  Deck(2, "Lilla minus", "Två termer där ingen är högre än 10. Exempelvis 4 - 3 = 1 ", lillaMinusCards.toList)
+		  	  	 ,Deck(3, "test", "Testkortlek", testCards    )
 		  	  	  ) 
 		  	  
 		  	  
