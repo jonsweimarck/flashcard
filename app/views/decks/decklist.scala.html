@@ -1,11 +1,18 @@
 @(decks: List[Deck])(implicit flash: Flash)
 
-@main("Kortlekar") {
+@main("mattekort.se") {
  
  <h2>Välj kortlek</h2>
+ <p>Klicka på namnet på den kortlek du vill träna på!</p>
 <div class="row show-grid">
   <div class="span4"> 
-	<table class="table">
+	<table class="table table-striped">
+      <thead>  
+          <tr>  
+            <th>Namn</th>  
+            <th>Beskrivning</th>  
+          </tr>  
+      </thead>
 	  <tbody>
 		@for(deck <- decks) {
 		  <tr>
