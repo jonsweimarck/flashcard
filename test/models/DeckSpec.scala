@@ -7,7 +7,7 @@ class DeckSpec extends Specification {
   // https://gist.github.com/seratch/1414177
 
   val testCards = List (Flashcard(0, "1+1=", "2"), Flashcard(1, "1+2=", "3"),Flashcard(2, "1+3=", "4"))
-  val deck = Deck(1, "testDeck", testCards)
+  val deck = Deck(1, "testDeck", "Description", testCards)
   
   "getFlashcardsByIndices()" should { 
       
