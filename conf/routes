@@ -21,8 +21,9 @@ GET		/deck/:id				    	controllers.Decks.details(id: Integer)
 
 GET		/decks							controllers.Decks.list
 
-GET     /favicon.ico   					controllers.Assets.at(path="/public", file="favicon.ico")
-GET     /apple-touch-icon.png   		controllers.Assets.at(path="/public", file="apple-touch-icon.png")
+#GET     /favicon.ico   					controllers.Assets.at(path="/public", file="favicon.ico")
+#GET     /apple-touch-icon.png   		controllers.Assets.at(path="/public", file="apple-touch-icon.png")
+#GET      /assets/images/thumbs-up-icon.png  	controllers.Assets.at(path="/public/images", file="thumbs-up-icon.png")
 
 
 # Map static resources from the /public folder to the /assets URL path

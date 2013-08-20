@@ -7,11 +7,10 @@
 	<meta name="keywords" content="matte,mattekort,grundskola,lilla plus,stora plus,lilla minus,stora minus">
 	
 	<title>@title</title>
-	<link rel="stylesheet" type="text/css" media="screen" href='@routes.Assets.at("stylesheets/bootstrap.css")'>
+	<link rel="stylesheet" type="text/css" media="screen" href='@routes.Assets.at("stylesheets/bootstrap.min.css")'>
 	<!--<link rel="stylesheet" type="text/css" media="screen" href='@routes.Assets.at("stylesheets/bootstrap-responsive.css")'>-->
 	<!--<link rel="stylesheet" type="text/css" media="screen" href='@routes.Assets.at("stylesheets/docs.css")'>-->
-	<link rel="stylesheet" type="text/css" media="screen" href="@routes.Assets.at("stylesheets/flipcard.css")">
-	
+	<link rel="stylesheet" type="text/css" media="screen" href="@routes.Assets.at("stylesheets/flipcard.css")">	
 	<link rel="stylesheet" type="text/css" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
 	
 	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
@@ -48,7 +47,7 @@
 	var countdownTimer = setInterval('secondPassed()', 1000);
 	var seconds = 5;
 	function secondPassed() {
-    	document.getElementById('flipbutton').innerHTML = "Vänd nu! (" + seconds + ")";
+    	document.getElementById('flipbutton').innerHTML = "<i class='icon-eye-open icon-white'></i>  (" + seconds + ")";
     	
     	if (seconds == 0) {
         	flipCard2();   
@@ -85,6 +84,6 @@
 	<div class="container" style="padding:10px; margin-top:10px; background-color:#D0E7EF;">	
        @content 
 	</div>
-	<div><small><a href="@routes.Application.index()">Börja om</a></small></div>
+	<div><a href="@routes.Application.index()"><i class="icon-home icon-white"></i><small> Börja om</small></a></div>
 </body>
 </html>
