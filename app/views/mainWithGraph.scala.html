@@ -73,7 +73,9 @@
     
     function disableFlipbutton()
     {
-        document.getElementById("flipbutton").disabled = true; 
+        document.getElementById("flipbutton").disabled = true;
+        document.getElementById("flipbutton").className += " disabled";
+        document.getElementById('flipbutton').innerHTML = "<i class='icon-eye-close icon-white'></i>  (0)";
     }
 
  

@@ -5,28 +5,25 @@
  <h2>Välj kortlek</h2>
  <p>Klicka på namnet på den kortlek du vill träna på!</p>
 <div class="row show-grid">
-  <div class="span4"> 
-	<table class="table table-striped">
-      <thead>  
-          <tr>  
-            <th>Namn</th>  
-            <th>Beskrivning</th>  
-          </tr>  
-      </thead>
-	  <tbody>
+  <div class="span4"> 	
+	<table class="table">	
+		 <tbody>
 		@for(deck <- decks) {
-		  <tr>
-			<form action="@routes.Decks.initialFlashcard2()" method="post">	
-			<input type="hidden" name="deckId" value="@deck.id">
-			<td>
-		        <button class="btn btn-link" type="submit">@deck.name</button>
-			</td>
-			<td>
-			    @deck.desc (@deck.size kort)
-			</td>
-		    </form>
-		  </tr>	
+		  <form id="decklistId" action="@routes.Decks.initialFlashcard2()" method="post">	
+		      <input type="hidden" name="deckId" value="@deck.id">
+			  <tr>
+				<td style="border:none;" >
+				  <a style="cursor:pointer;" onclick="document.getElementById('decklistId').submit();">
+				  	<i class="icon-play icon-white"></i>  @deck.name
+				  </a>
+				  <br>
+				  @deck.desc (@deck.size kort)
+				</td>
+				</tr>
+			</form>
 		}
+	  </tbody>
+
 	  </tbody>	
 	</table>
   </div>
