@@ -9,15 +9,15 @@
 	<table class="table">	
 		 <tbody>
 		@for(deck <- decks) {
-		  <form id="decklistId" action="@routes.Decks.initialFlashcard2()" method="post">	
-		      <input type="hidden" name="deckId" value="@deck.id">
+		  <form id="decklistId@deck.id" action="@routes.Decks.initialFlashcard2()" method="post">	
+		      <input type="hidden" name="deckId" value=@deck.id>
 			  <tr>
 				<td style="border:none;" >
-				  <a style="cursor:pointer;" onclick="document.getElementById('decklistId').submit();">
+				  <a style="cursor:pointer;" onclick="document.getElementById('decklistId@deck.id').submit();">
 				  	<i class="icon-play icon-white"></i>  @deck.name
 				  </a>
 				  <br>
-				  @deck.desc (@deck.size kort)
+				  @deck.desc (@deck.size kort) @deck.id
 				</td>
 				</tr>
 			</form>

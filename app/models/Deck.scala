@@ -43,7 +43,7 @@ object Deck {
   
   var decks = Set(Deck(1, "Lilla plus", "Addition med två termer vars summa inte överstiger 10. Exempelvis 3 + 5 = 8. Dessutom 5 + 6 och 6 + 5.", lillaPlusCards.toList),
 		  	  	  Deck(2, "Lilla minus", "Subtraktion med två termer där ingen är högre än 10. Exempelvis 4 - 3 = 1 ", lillaMinusCards.toList)
-		  	  	 //,Deck(3, "test", "Testkortlek", testCards    )
+		  	  	 ,Deck(3, "test", "Testkortlek", testCards    )
 		  	  	  ) 
 		  	  
 		  	  

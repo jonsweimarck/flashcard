@@ -5,6 +5,24 @@
     }
 }
 
+.btnThumbsUp
+{
+    background-image: url('../images/thumbs-up-icon.png');
+    background-repeat:no-repeat;
+    width:62px; 
+    height:29px;
+    filter: none;
+}
+
+.btnThumbsDown
+{
+    background-image: url('../images/thumbs-up-icon.png');
+    background-repeat:no-repeat;
+    width:70px; 
+    height:40px;
+    filter: none;
+}
+
 
 //body { 
 //	color:black; 

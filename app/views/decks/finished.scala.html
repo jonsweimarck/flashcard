@@ -7,12 +7,12 @@
 			Klar!
 		</h2>
 		@if(retriedFlashcard.size > 0) {
-		  <p>Du hade bara fel på:</p>
+		  <p>Du hade bara problem med:</p>
 		  @for(card <- retriedFlashcard){
 		    <div>@card.question @card.answer</div>
 		  }
 		} else {
-		 <p> Du klarade alla kort utan fel! </p>
+		 <p> Du klarade alla kort utan problem! </p>
 		}
 		<br/>
 		<div class="row show-grid">
