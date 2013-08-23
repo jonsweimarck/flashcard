@@ -9,7 +9,7 @@
 	<table class="table">	
 		 <tbody>
 		@for(deck <- decks) {
-		  <form id="decklistId@deck.id" action="@routes.Decks.initialFlashcard2()" method="post">	
+		  <form id="decklistId@deck.id" action="@routes.Decks.initialFlashcard()" method="post">	
 		      <input type="hidden" name="deckId" value=@deck.id>
 			  <tr>
 				<td style="border:none;" >
@@ -17,7 +17,7 @@
 				  	<i class="icon-play icon-white"></i>  @deck.name
 				  </a>
 				  <br>
-				  @deck.desc (@deck.size kort) @deck.id
+				  @deck.desc (@deck.size kort)
 				</td>
 				</tr>
 			</form>

@@ -29,26 +29,27 @@ class DeckSpec extends Specification {
   
   "decks() 'lilla plus'" should {
     
-    "return 68 cards" in {
-      Deck.findById(1).get.flashcards.size must be equalTo 68
+    "return 66 cards" in {
+      Deck.findById(1).get.flashcards.size must be equalTo 66
     }
-    
-    "return only two answers over 10" in {
-      val cards = Deck.findById(1).get.flashcards
-      val over10 = cards.filter(f => f.answer.toInt > 10)
-      over10.size must be equalTo 2
-      //cards.foreach(println _)
-    }
-    
-    "return 2 cards with answer '11'" in {
-      val cards = Deck.findById(1).get.flashcards
-      cards.filter(f => f.answer.toInt == 11).size must be equalTo 2
-    }
+
+    // Uppsavjaskolan special med 5+6 och 6+5 struntar vi i
+//    "return only two answers over 10" in {
+//      val cards = Deck.findById(1).get.flashcards
+//      val over10 = cards.filter(f => f.answer.toInt > 10)
+//      over10.size must be equalTo 2
+//      //cards.foreach(println _)
+//    }
+//    
+//    "return 2 cards with answer '11'" in {
+//      val cards = Deck.findById(1).get.flashcards
+//      cards.filter(f => f.answer.toInt == 11).size must be equalTo 2
+//    }
   }
   
    "decks() 'lilla minus'" should {
     
-    "return 55 cards" in {
+    "return 66 cards" in {
       Deck.findById(2).get.flashcards.size must be equalTo 66
     }
     

@@ -17,7 +17,7 @@ object Decks extends Controller {
 	    Ok(views.html.decks.decklist(Deck.findAll))
 	}
   	
-  	def nextFlashcardFromState2() = Action { implicit request =>
+  	def nextFlashcardFromState() = Action { implicit request =>
   	  stateForm.bindFromRequest().fold(
   	    formWithErrors => BadRequest("Couldn't Happen!"),
   	    stateParameters => {
@@ -49,7 +49,7 @@ object Decks extends Controller {
   	  )
   	}
 
-  	def initialFlashcard2() = Action { implicit request =>
+  	def initialFlashcard() = Action { implicit request =>
   	  initialFlashcardForm.bindFromRequest().fold(
   	    formWithErrors => BadRequest("Couldn't Happen!"),
   	    stateParameters => {

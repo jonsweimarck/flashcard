@@ -30,18 +30,16 @@
 				margin-left: 3px; 
 				margin-right:2px;" class="btn btn-info active" id="flipbutton" onclick="flipCard2()"><i class="icon-eye-open icon-white"></i> (5)</button>
  				
-				<form class="form-inline" style="float: left; padding: 2px;" action="@routes.Decks.nextFlashcardFromState2()" method="post">
+				<form class="form-inline" style="float: left; padding: 2px;" action="@routes.Decks.nextFlashcardFromState()" method="post">
 					<input type="hidden" name="deckId" value="@deckId">
 					<input type="hidden" name="retriesHasStarted" value="@retriesHasStarted">
 					<input type="hidden" name="flashcardsStateAsString" value="@postStateIfOK.stateAsString">
-					<!--<button class="btn btn-success" type="submit"><i class=" icon-thumbs-up"></i></button>-->
 					<button style="width:70px" class="btn btn-success" type="submit"><i class=" icon-ok icon-white"></i></button>
 				</form>
-				<form class="form-inline" style="float: left; padding: 2px;" action="@routes.Decks.nextFlashcardFromState2()" method="post">
+				<form class="form-inline" style="float: left; padding: 2px;" action="@routes.Decks.nextFlashcardFromState()" method="post">
 					<input type="hidden" name="deckId" value="@deckId">
 					<input type="hidden" name="retriesHasStarted" value="@retriesHasStarted">
 					<input type="hidden" name="flashcardsStateAsString" value="@postStateIfNOK.stateAsString"> 
-					<!--<button class="btn btn-danger" type="submit"><i class=" icon-thumbs-down"></i></button>-->
 					<button  style="width:70px"class="btn btn-danger" type="submit"><i class=" icon-remove icon-white"></i></button>
 				</form>
 			</div>

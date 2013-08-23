@@ -32,11 +32,9 @@
         ]); 
 
         var options = {
-          //title: 'My Daily Activities', 
           colors:['green','red','limegreen', 'blue'],
           backgroundColor: '#D0E7EF',
           chartArea:{left:8,top:10,width:"84%",height:"84%"},
-          //chartArea:{left:0,top:0,width:"100%",height:"100%"},
           legend:{position:'none', },
           reverseCategories:true
         };
@@ -54,20 +52,13 @@
     	document.getElementById('flipbutton').innerHTML = "<i class='icon-eye-open icon-white'></i>  (" + seconds + ")";
     	
     	if (seconds == 0) {
-        	flipCard2();   
+        	flipCard();   
     	} else {
         	seconds--;
     	}
 	}
-	
-	function flipCard()
-    {	
-    	clearInterval(countdownTimer);
-        document.getElementById("flipid").className += " flipping";
-        disableFlipbutton();
-    }
     
-    function flipCard2()
+    function flipCard()
     {	
     	clearInterval(countdownTimer);
         document.getElementById("flipid").className += " flip";

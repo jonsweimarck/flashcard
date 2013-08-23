@@ -5,23 +5,11 @@
 # Home page
 GET     /                           	controllers.Application.index
 
-POST 	/flashcard 						controllers.Flashcards.save
+POST 	/deck/nextFlashcardFromState 	controllers.Decks.nextFlashcardFromState
 
-POST 	/deck/nextFlashcardFromState2 	controllers.Decks.nextFlashcardFromState2
- 
-GET 	/flashcard/new 					controllers.Flashcards.newFlashcard
-
-GET		/flashcard/:id					controllers.Flashcards.details(id: Integer)
-
-POST	/deck/initialFlashcard2			controllers.Decks.initialFlashcard2
-
-GET		/flashcards						controllers.Flashcards.list
-
-GET		/deck/:id				    	controllers.Decks.details(id: Integer)
+POST	/deck/initialFlashcard			controllers.Decks.initialFlashcard
 
 GET		/decks							controllers.Decks.list
-
-
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)

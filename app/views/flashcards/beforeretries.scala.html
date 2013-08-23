@@ -18,7 +18,7 @@
 		<div class="row show-grid">
         	<div class="span4" half> 
 
-				<form class="form-inline" style="float: left; padding: 2px;" action="@routes.Decks.nextFlashcardFromState2()" method="post">
+				<form class="form-inline" style="float: left; padding: 2px;" action="@routes.Decks.nextFlashcardFromState()" method="post">
 					<input type="hidden" name="deckId" value="@deckId">
 					<input type="hidden" name="retriesHasStarted" value="true">
 					<input type="hidden" name="flashcardsStateAsString" value="@currentState.stateAsString">
