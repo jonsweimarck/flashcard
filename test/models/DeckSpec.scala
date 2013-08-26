@@ -33,7 +33,7 @@ class DeckSpec extends Specification {
       Deck.findById(1).get.flashcards.size must be equalTo 66
     }
 
-    // Uppsavjaskolan special med 5+6 och 6+5 struntar vi i
+    // Uppsavjaskolan special med 5+6 och 6+5 struntar jag i
 //    "return only two answers over 10" in {
 //      val cards = Deck.findById(1).get.flashcards
 //      val over10 = cards.filter(f => f.answer.toInt > 10)
