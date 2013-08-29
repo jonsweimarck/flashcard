@@ -57,13 +57,46 @@ class DeckSpec extends Specification {
       val cards = Deck.findById(2).get.flashcards
       val under1 = cards.filter(f => f.answer.toInt < 1)
       under1.size must be equalTo 11
-      cards.foreach(println _)
+     // cards.foreach(println _)
     }
     
     "return 11 card with answer '0'" in {
       val cards = Deck.findById(2).get.flashcards
       cards.filter(f => f.answer.toInt == 0).size must be equalTo 11
     }
-  }
+   }
+   
+   "decks() 'stora plus ('hela')" should {
+    
+	    "return 231 cards" in {
+	      Deck.findById(3).get.flashcards.size must be equalTo 231
+	      //Deck.findById(3).get.flashcards.foreach(println _)
+	    }
+   } 
 
+   "decks() 'stora plus ('forutom lilla plus')" should {
+    
+	    "return 165 cards" in {
+	      Deck.findById(4).get.flashcards.size must be equalTo 165
+	      //Deck.findById(4).get.flashcards.foreach(println _)
+	    }
+   } 
+   
+   "decks() 'stora minus('hela')" should {
+    
+	    "return 231 cards" in {
+	      Deck.findById(5).get.flashcards.size must be equalTo 231
+	      //Deck.findById(5).get.flashcards.foreach(println _)
+	    }
+   } 
+
+   "decks() 'stora minus ('forutom lilla minus')" should {
+    
+	    "return 165 cards" in {
+	      Deck.findById(6).get.flashcards.size must be equalTo 165
+	      //Deck.findById(6).get.flashcards.foreach(println _)
+	    }
+   }
+   
+   
 }
