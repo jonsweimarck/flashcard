@@ -5,6 +5,8 @@
 # Home page
 GET     /                           	controllers.Application.index
 
+
+
 POST 	/deck/nextFlashcardFromState 	controllers.Decks.nextFlashcardFromState
 
 POST	/deck/initialFlashcard			controllers.Decks.initialFlashcard
@@ -13,3 +15,6 @@ GET		/decks							controllers.Decks.list
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
+
+GET     /favicon.ico                controllers.Assets.at(path="/public", file="favicon.ico")
+GET     /apple-touch-icon.png       controllers.Assets.at(path="/public", file="apple-touch-icon.png")
