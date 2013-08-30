@@ -16,5 +16,10 @@ GET		/decks							controllers.Decks.list
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
 
-GET     /favicon.ico                controllers.Assets.at(path="/public", file="favicon.ico")
-GET     /apple-touch-icon.png       controllers.Assets.at(path="/public", file="apple-touch-icon.png")
+
+# Special for favicons and apple-touch-icons
+GET     /favicon.ico          		    controllers.Assets.at(path="/public/images", file="favicon.ico")
+GET     /apple-touch-icon.png			controllers.Assets.at(path="/public/images/ios", file="apple-touch-icon.png")
+GET     /apple-touch-icon-72px.png      controllers.Assets.at(path="/public/images/ios", file="apple-touch-icon-72px.png")
+GET     /apple-touch-icon-114px.png     controllers.Assets.at(path="/public/images/ios", file="apple-touch-icon-114px.png")
+GET     /apple-touch-icon-144px.png     controllers.Assets.at(path="/public/images/ios", file="apple-touch-icon-144px.png")
