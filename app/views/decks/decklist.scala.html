@@ -1,31 +1,60 @@
-@(decks: List[Deck])(implicit flash: Flash)
+@(addDecks: List[Deck], subDecks: List[Deck], multDecks: List[Deck], diviDecks: List[Deck])(implicit flash: Flash)
 
 @main("mattekort.se") {
  
  <h2>Välj kortlek</h2>
- <p>Klicka på namnet på den kortlek du vill träna på!</p>
+ <p>
+ Klicka först på den typ av mattetal du vill träna på, då visas vilka kortlekar som finns.<br>
+ Klicka sedan på namnet på den kortlek du vill träna på!
+ </p>
 <div class="row show-grid">
-  <div class="span4"> 	
-	<table class="table">	
-		 <tbody>
-		@for(deck <- decks) {
-		  <form id="decklistId@deck.id" action="@routes.Decks.initialFlashcard()" method="post">	
-		      <input type="hidden" name="deckId" value=@deck.id>
-			  <tr>
-				<td style="border:none;" >
-				  <a style="cursor:pointer;" onclick="document.getElementById('decklistId@deck.id').submit();">
-				  	<i class="icon-play icon-white"></i>  @deck.name
-				  </a>
-				  <br>
-				  @deck.desc (@deck.size kort)
-				</td>
-				</tr>
-			</form>
-		}
-	  </tbody>
+  <div class="span4">
+  
+  	<h3><a href="#" onclick='toogleDivs("addDiv");'>Addition</a></h3>
+	<div style="display:none;" id="addDiv">	 	
+		<table class="table">	
+		  <tbody>
+			@for(deck <- addDecks) {
+			  <form id="decklistId@deck.id" action="@routes.Decks.initialFlashcard()" method="post">	
+			      <input type="hidden" name="deckId" value=@deck.id>
+				  <tr>
+					<td style="border:none;" >
+					  <a style="cursor:pointer;" onclick="document.getElementById('decklistId@deck.id').submit();">
+					  	<i class="icon-play icon-white"></i>  @deck.name
+					  </a>
+					  <br>
+					  @deck.desc (@deck.size kort)
+					</td>
+					</tr>
+				</form>
+			}
+		  </tbody>		  	
+		</table>
+	</div>
 
-	  </tbody>	
-	</table>
+  	<h3><a href="#" onclick='toogleDivs("subDiv");'>Subtraktion</a></h3>
+	<div style="display:none;" id="subDiv">	 	
+		<table class="table">	
+		  <tbody>
+			@for(deck <- subDecks) {
+			  <form id="decklistId@deck.id" action="@routes.Decks.initialFlashcard()" method="post">	
+			      <input type="hidden" name="deckId" value=@deck.id>
+				  <tr>
+					<td style="border:none;" >
+					  <a style="cursor:pointer;" onclick="document.getElementById('decklistId@deck.id').submit();">
+					  	<i class="icon-play icon-white"></i>  @deck.name
+					  </a>
+					  <br>
+					  @deck.desc (@deck.size kort)
+					</td>
+					</tr>
+				</form>
+			}
+		  </tbody>		  	
+		</table>
+	</div>
+	
+	
   </div>
 </div>	
 

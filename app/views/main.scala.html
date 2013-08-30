@@ -38,6 +38,20 @@
             }
             alert('Your viewport width & height is ' + viewportwidth + 'x' + viewportheight);
         }
+        
+		
+		function toogleDivs(divToOpen) {
+		    document.getElementById("addDiv").style.display = "none";
+		    document.getElementById("subDiv").style.display = "none";
+		    //document.getElementById("multDiv").style.display = "none";
+		    //document.getElementById("diviDiv").style.display = "none";
+		    
+		    
+		    document.getElementById(divToOpen).style.display = "block";
+		}
+
+
+        
     </script>
 	
 </head>

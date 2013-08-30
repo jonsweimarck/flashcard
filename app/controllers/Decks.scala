@@ -14,7 +14,11 @@ object Decks extends Controller {
 	}
   
   	def list = Action { implicit request => 
-	    Ok(views.html.decks.decklist(Deck.findAll))
+	    Ok(views.html.decks.decklist(
+	        Deck.findAdditionDecks(), 
+	        Deck.findSubtractionDecks, 
+	        Deck.findMultiplicationDecks, 
+	        Deck.findDivisionDecks()))
 	}
   	
   	def nextFlashcardFromState() = Action { implicit request =>

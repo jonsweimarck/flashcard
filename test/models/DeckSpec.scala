@@ -7,7 +7,7 @@ class DeckSpec extends Specification {
   // https://gist.github.com/seratch/1414177
 
   val testCards = List (Flashcard(0, "1+1=", "2"), Flashcard(1, "1+2=", "3"),Flashcard(2, "1+3=", "4"))
-  val deck = Deck(1, "testDeck", "Description", testCards)
+  val deck = Deck(1, "testDeck", Addition(), "Description", testCards)
   
   "getFlashcardsByIndices()" should { 
       
@@ -25,6 +25,23 @@ class DeckSpec extends Specification {
       val cards = deck.getFlashcardsByIndices(List(2))
       cards.size must be equalTo 1
     } 
+  }
+  
+  
+  "findAdditionDecks()" should {
+    
+	  "return 3 decks" in {
+	    val decks = Deck.findAdditionDecks()
+	    decks.size must be equalTo 3
+	  }
+  }
+  
+  "findSubtractionDecks()" should {
+    
+	  "return 3 decks" in {
+	    val decks = Deck.findSubtractionDecks()
+	    decks.size must be equalTo 3
+	  }
   }
   
   "decks() 'lilla plus'" should {
