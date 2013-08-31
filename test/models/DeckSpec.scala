@@ -115,5 +115,12 @@ class DeckSpec extends Specification {
 	    }
    }
    
+   "createMultplicationTableFor(0)" should {
+	   
+     "return 11 cards" in {
+      // Deck.createMultplicationTableFor(0).foreach(println)
+       Deck.createMultplicationTableFor(0).size must be equalTo 11
+     }
+   }
    
 }

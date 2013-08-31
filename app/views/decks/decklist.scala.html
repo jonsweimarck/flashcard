@@ -56,6 +56,29 @@
 		</table>
 	</div>
 	
+  	<h3><a href="#" onclick='toogleDivs("multDiv");'>Gånger</a></h3>
+	<div style="display:none;" id="multDiv">	 	
+		<table class="table">	
+		  <tbody>
+			@for(deck <- multDecks) {
+			  <form id="decklistId@deck.id" action="@routes.Decks.initialFlashcard()" method="post">	
+			      <input type="hidden" name="deckId" value=@deck.id>
+				  <tr>
+					<td style="border:none;" >
+					  <a style="cursor:pointer;" onclick="document.getElementById('decklistId@deck.id').submit();">
+					  	<i class="icon-play icon-white"></i>  @deck.name
+					  </a>
+					  <br>
+					  @deck.desc (@deck.size kort)
+					</td>
+					</tr>
+				</form>
+			}
+		  </tbody>		  	
+		</table>
+	</div>
+
+
 	
   </div>
 </div>	
