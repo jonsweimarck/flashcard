@@ -2,15 +2,17 @@
 
 @main("mattekort.se") {
  
- <h2>Välj kortlek</h2>
- <p>
- Klicka först på den typ av mattetal du vill träna på, då visas vilka kortlekar som finns.<br>
- Klicka sedan på namnet på den kortlek du vill träna på!
- </p>
+
 <div class="row show-grid">
   <div class="span4">
   
-  	<h3><a href="#" onclick='toogleDivs("addDiv");'>Addition</a></h3>
+   	<h2>Välj kortlek</h2>
+	<p>
+	 Klicka först på det räknesätt du vill träna på nedan, då visas vilka kortlekar som finns.<br>
+	 Klicka sedan på namnet på den kortlek du vill träna på!
+	</p>
+  
+  	<h3><a href="#" onclick='toogleDivs("addDiv");'>Plus</a></h3>
 	<div style="display:none;" id="addDiv">	 	
 		<table class="table">	
 		  <tbody>
@@ -32,7 +34,7 @@
 		</table>
 	</div>
 
-  	<h3><a href="#" onclick='toogleDivs("subDiv");'>Subtraktion</a></h3>
+  	<h3><a href="#" onclick='toogleDivs("subDiv");'>Minus</a></h3>
 	<div style="display:none;" id="subDiv">	 	
 		<table class="table">	
 		  <tbody>
