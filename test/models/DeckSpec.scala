@@ -72,14 +72,14 @@ class DeckSpec extends Specification {
     
     "return 11 answers under 1" in {
       val cards = Deck.findById(2).get.flashcards
-      val under1 = cards.filter(f => f.answer.toInt < 1)
+      val under1 = cards.filter(f => f.answer.substring(f.answer.length-2).trim.toInt < 1)
       under1.size must be equalTo 11
-     // cards.foreach(println _)
+      //cards.foreach(f => println (f.answer.substring(f.answer.length-2).trim))
     }
     
     "return 11 card with answer '0'" in {
       val cards = Deck.findById(2).get.flashcards
-      cards.filter(f => f.answer.toInt == 0).size must be equalTo 11
+      cards.filter(f => f.answer.substring(f.answer.length - 2).trim.toInt == 0).size must be equalTo 11
     }
    }
    

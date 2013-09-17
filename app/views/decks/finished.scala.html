@@ -9,7 +9,7 @@
 		@if(retriedFlashcard.size > 0) {
 		  <p>Du hade bara problem med:</p>
 		  @for(card <- retriedFlashcard){
-		    <div>@card.question @card.answer</div>
+		    <div>@card.answer</div>
 		  }
 		} else {
 		 <p> Du klarade alla kort utan problem! </p>

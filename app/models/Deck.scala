@@ -18,7 +18,9 @@ case class Deck(id: Int, name: String, deckType: DeckType, desc: String, flashca
 }
 
 object Deck { 
-
+  
+  val rand = new Random()
+  
   def findAll = decks.toList
   
   def findById(id: Integer) = decks.find(_.id == id)
@@ -37,7 +39,7 @@ object Deck {
     	j <- 0 to 10 if (i + j <= 10 )// || (i == 5 && j == 6) || (i == 6  && j == 5)) Uppsavjaskolan special struntar jag i
     } yield { 
       id = id + 1; 
-      Flashcard(id, i + " + " + j + " = ", (i + j).toString)
+      Flashcard(id, i + " + " + j + " = ", i + " + " + j + " = " + (i + j).toString)
     }
   }
   
@@ -47,7 +49,7 @@ object Deck {
     	j <- 0 to 10 if (i - j >= 0)
     } yield { 
       id = id + 1; 
-      Flashcard(id, i + " - " + j + " = ", (i - j).toString)
+      Flashcard(id, i + " - " + j + " = ", i + " - " + j + " = " + (i - j).toString)
     }
   }
   
@@ -57,7 +59,7 @@ object Deck {
     	j <- 0 to 20 if (i + j > 10 ) && (i + j <= 20 )
     } yield { 
       id = id + 1; 
-      Flashcard(id, i + " + " + j + " = ", (i + j).toString)
+      Flashcard(id, i + " + " + j + " = ", i + " + " + j + " = " + (i + j).toString)
     }
   }
   
@@ -78,7 +80,7 @@ object Deck {
     	j <- 0 to 20 if (i - j >= 0) && (i > 10 || j > 10)
     } yield { 
       id = id + 1; 
-      Flashcard(id, i + " - " + j + " = ", (i - j).toString)
+      Flashcard(id, i + " - " + j + " = ", i + " - " + j + " = " + (i - j).toString)
     }
   }
   
@@ -96,7 +98,7 @@ object Deck {
    var id = 0
    for { factor2 <- 0 to 10} yield {
      id = id + 1
-     Flashcard(id, factor + " * " + factor2 + " = ", (factor * factor2).toString)
+     Flashcard(id, factor + " * " + factor2 + " = ", factor + " * " + factor2 + " = " + (factor * factor2).toString)
    }
  }
  	  					
