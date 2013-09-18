@@ -50,10 +50,9 @@ object Deck {
     } yield {
       id = id + 1;
      
-      rand.nextInt(3) match {
-      	case(0) => Flashcard(id, i + " + " + j + " = ", i + " + " + j + " = " + (i + j).toString)
-      	case(1) => Flashcard(id, "_ + " + j + " = " + (i + j).toString, i + " + " + j + " = " + (i + j).toString)
-      	case(2) => Flashcard(id, i + " + _ = " + (i + j).toString, i + " + " + j + " = " + (i + j).toString)
+      rand.nextInt(2) match {
+      	case(0) => Flashcard(id, (i + j).toString + " = _ + " + j, (i + j).toString + " = " + i + " + " + j)
+      	case(1) => Flashcard(id,  (i + j).toString + " = " + i + " + _",  (i + j).toString + " = " + i + " + " + j)
       }     
     }
   }
@@ -74,10 +73,9 @@ object Deck {
     	j <- 0 to 10 if (i - j >= 0)
     } yield { 
       id = id + 1; 
-      rand.nextInt(3) match {
-      	case(0) => Flashcard(id, i + " - " + j + " = ", i + " - " + j + " = " + (i - j).toString)
-      	case(1) => Flashcard(id, "_ - " + j + " = " + (i - j).toString, i + " - " + j + " = " + (i - j).toString)
-      	case(2) => Flashcard(id, i + " - _ = " + (i - j).toString, i + " - " + j + " = " + (i - j).toString)
+      rand.nextInt(2) match {
+      	case(0) => Flashcard(id, (i - j).toString + " = _ - " + j , (i - j).toString + " = " + i + " - " + j)
+      	case(1) => Flashcard(id, (i - j).toString + " = " + i + " - _" , (i - j).toString + " = " + i + " - " + j)
       } 
     }
   }
@@ -136,14 +134,14 @@ object Deck {
 		  					Flashcard(2, "3+0=", "3"))
   
   var decks = List(
-		  		  Deck(1, "Lilla plus", Addition(), "Addition med två termer vars summa inte överstiger 10. Exempelvis 3 + 5 = 8", lillaPlusCards.toList),
-		  		  Deck(2, "Lilla plus (med saknade termer)", Addition(), "Som vanliga lilla plus men ibland är det en term som saknas istället för summan. Exempelvis 3 + _ = 8", lillaPlusCardsRandomMissing.toList),
-		  	  	  Deck(3, "Lilla minus", Subtraction(), "Subtraktion med två termer där ingen är högre än 10. Exempelvis 4 - 3 = 1", lillaMinusCards.toList),
-		  	  	  Deck(4, "Lilla minus (med saknade termer)", Subtraction(), "Som vanliga lilla minus men ibland är det en term som saknas istället för differensen. Exempelvis 4 - _ = 1", lillaMinusCardsRandomMissing.toList),
+		  		  Deck(1, "Lilla plus", Addition(), "Addition med två termer vars summa inte överstiger 10. Exempelvis 3 + 5 = 8 ", lillaPlusCards.toList),
+		  		  Deck(2, "Lilla plus (med saknade termer)", Addition(), "Som vanliga lilla plus men en term saknas istället för summan. Exempelvis 8 = 3 + _ ", lillaPlusCardsRandomMissing.toList),
+		  	  	  Deck(3, "Lilla minus", Subtraction(), "Subtraktion med två termer där ingen är högre än 10. Exempelvis 4 - 3 = 1 ", lillaMinusCards.toList),
+		  	  	  Deck(4, "Lilla minus (med saknade termer)", Subtraction(), "Som vanliga lilla minus men en term  saknas istället för differensen. Exempelvis 8 = 4 - _ ", lillaMinusCardsRandomMissing.toList),
 		  	  	  Deck(5, "Stora plus (hela)", Addition(), "Addition med två termer vars summa inte överstiger 20. Exempel 8 + 9 = 17", storaPlusCards.toList),
-		  	  	  Deck(6, "Stora plus (förutom 'lilla plus')", Addition(), "Som stora plus, men utom de kort som ingår i lilla plus", storaPlusCardsExcludingLillaPlus.toList),
-		  	  	  Deck(7, "Stora minus (hela)", Subtraction(),"Subtraktion med två termer där ingen är högre än 20. Exempel 14 - 9 = 5", storaMinusCards.toList),
-		  	  	  Deck(8, "Stora minus (förutom 'lilla minus')", Subtraction(), "Som stora minus, men utom de kort som ingår i lilla minus", storaMinusCardsExcludingLillaMinus.toList),
+		  	  	  Deck(6, "Stora plus (förutom 'lilla plus')", Addition(), "Som stora plus, men utom de kort som ingår i lilla plus ", storaPlusCardsExcludingLillaPlus.toList),
+		  	  	  Deck(7, "Stora minus (hela)", Subtraction(),"Subtraktion med två termer där ingen är högre än 20. Exempel 14 - 9 = 5 ", storaMinusCards.toList),
+		  	  	  Deck(8, "Stora minus (förutom 'lilla minus')", Subtraction(), "Som stora minus, men utom de kort som ingår i lilla minus ", storaMinusCardsExcludingLillaMinus.toList),
 		  	  	  Deck(9, "Nollans tabell", Multiplication(), "Exempelvis '0 * 5 = 0', '0 * 8 = 0'", createMultplicationTableFor(0).toList),
 		  	  	  Deck(10, "Ettans tabell", Multiplication(), "Exempelvis '1 * 5 = 5', '1 * 8 = 8'", createMultplicationTableFor(1).toList),
 		  	  	  Deck(11, "Tvåans tabell", Multiplication(), "Exempelvis '2 * 5 = 10', '2 * 8 = 16'", createMultplicationTableFor(2).toList),
