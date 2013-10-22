@@ -102,7 +102,7 @@ object Deck {
  private val storaPlusOnlyStartsWith3 = storaPlusOnlyStartsWithX(3)
  private val storaPlusOnlyStartsWith2 = storaPlusOnlyStartsWithX(2)
  private val storaPlusOnlyStartsWith1 = storaPlusOnlyStartsWithX(1)
- 
+ private val storaPlusOnlyStartsWith8_9_10 = storaPlusOnlyStartsWithX(8)  ++ storaPlusOnlyStartsWithX(9) ++ storaPlusOnlyStartsWithX(10)
  
   
   private val storaPlusCardsExcludingLillaPlus = {
@@ -174,19 +174,22 @@ object Deck {
 		  	  	  Deck(15, "Stora plus (bara där första termen är 2)", Addition(), "Delmängd av stora plus. Första termen är alltid 2. Ibland saknas summan, ibland den andra termen. Exempelvis 2 + _ = 17", storaPlusOnlyStartsWith2.toList),
 		  	  	  Deck(16, "Stora plus (bara där första termen är 1)", Addition(), "Delmängd av stora plus. Första termen är alltid 1. Ibland saknas summan, ibland den andra termen. Exempelvis 1 + _ = 17", storaPlusOnlyStartsWith1.toList),
 		  	  	
-		  	  	  Deck(17, "Stora minus (hela)", Subtraction(),"Subtraktion med två termer där ingen är högre än 20. Exempel 14 - 9 = 5 ", storaMinusCards.toList),
-		  	  	  Deck(18, "Stora minus (förutom 'lilla minus')", Subtraction(), "Som stora minus, men utom de kort som ingår i lilla minus ", storaMinusCardsExcludingLillaMinus.toList),
-		  	  	  Deck(19, "Nollans tabell", Multiplication(), "Exempelvis '0 * 5 = 0', '0 * 8 = 0'", createMultplicationTableFor(0).toList),
-		  	  	  Deck(20, "Ettans tabell", Multiplication(), "Exempelvis '1 * 5 = 5', '1 * 8 = 8'", createMultplicationTableFor(1).toList),
-		  	  	  Deck(21, "Tvåans tabell", Multiplication(), "Exempelvis '2 * 5 = 10', '2 * 8 = 16'", createMultplicationTableFor(2).toList),
-		  	  	  Deck(22, "Treans tabell", Multiplication(), "Exempelvis '3 * 5 = 15', '3 * 8 = 24'", createMultplicationTableFor(3).toList),
-		  	  	  Deck(23, "Fyrans tabell", Multiplication(), "Exempelvis '4 * 5 = 20', '4 * 8 = 32'", createMultplicationTableFor(4).toList),
-		  	  	  Deck(24, "Femmans tabell", Multiplication(), "Exempelvis '5 * 5 = 25', '5 * 8 = 40'", createMultplicationTableFor(5).toList),
-		  	  	  Deck(25, "Sexans tabell", Multiplication(), "Exempelvis '6 * 5 = 30', '6 * 8 = 48'", createMultplicationTableFor(6).toList),
-		  	  	  Deck(26, "Sjuans tabell", Multiplication(), "Exempelvis '7 * 5 = 35', '7 * 8 = 56'", createMultplicationTableFor(7).toList),
-		  	  	  Deck(27, "Åttans tabell", Multiplication(), "Exempelvis '8 * 5 = 40', '8 * 8 = 64'", createMultplicationTableFor(8).toList),
-		  	  	  Deck(28, "Nians tabell", Multiplication(), "Exempelvis '9 * 5 = 45', '9 * 8 = 72'", createMultplicationTableFor(9).toList),
-		  	  	  Deck(29, "Tians tabell", Multiplication(), "Exempelvis '10 * 5 = 50', '10 * 8 = 80'", createMultplicationTableFor(10).toList)
+		  	  	  Deck(17, "Stora plus (bara där första termen är 10, 9 eller 8)", Addition(), "Delmängd av stora plus. Första termen är alltid 8, 9 eller 10. Ibland saknas summan, ibland den andra termen. Exempelvis 10 + _ = 17", storaPlusOnlyStartsWith8_9_10.toList),
+
+		  	  	  
+		  	  	  Deck(30, "Stora minus (hela)", Subtraction(),"Subtraktion med två termer där ingen är högre än 20. Exempel 14 - 9 = 5 ", storaMinusCards.toList),
+		  	  	  Deck(31, "Stora minus (förutom 'lilla minus')", Subtraction(), "Som stora minus, men utom de kort som ingår i lilla minus ", storaMinusCardsExcludingLillaMinus.toList),
+		  	  	  Deck(32, "Nollans tabell", Multiplication(), "Exempelvis '0 * 5 = 0', '0 * 8 = 0'", createMultplicationTableFor(0).toList),
+		  	  	  Deck(33, "Ettans tabell", Multiplication(), "Exempelvis '1 * 5 = 5', '1 * 8 = 8'", createMultplicationTableFor(1).toList),
+		  	  	  Deck(34, "Tvåans tabell", Multiplication(), "Exempelvis '2 * 5 = 10', '2 * 8 = 16'", createMultplicationTableFor(2).toList),
+		  	  	  Deck(35, "Treans tabell", Multiplication(), "Exempelvis '3 * 5 = 15', '3 * 8 = 24'", createMultplicationTableFor(3).toList),
+		  	  	  Deck(36, "Fyrans tabell", Multiplication(), "Exempelvis '4 * 5 = 20', '4 * 8 = 32'", createMultplicationTableFor(4).toList),
+		  	  	  Deck(37, "Femmans tabell", Multiplication(), "Exempelvis '5 * 5 = 25', '5 * 8 = 40'", createMultplicationTableFor(5).toList),
+		  	  	  Deck(38, "Sexans tabell", Multiplication(), "Exempelvis '6 * 5 = 30', '6 * 8 = 48'", createMultplicationTableFor(6).toList),
+		  	  	  Deck(39, "Sjuans tabell", Multiplication(), "Exempelvis '7 * 5 = 35', '7 * 8 = 56'", createMultplicationTableFor(7).toList),
+		  	  	  Deck(40, "Åttans tabell", Multiplication(), "Exempelvis '8 * 5 = 40', '8 * 8 = 64'", createMultplicationTableFor(8).toList),
+		  	  	  Deck(41, "Nians tabell", Multiplication(), "Exempelvis '9 * 5 = 45', '9 * 8 = 72'", createMultplicationTableFor(9).toList),
+		  	  	  Deck(42, "Tians tabell", Multiplication(), "Exempelvis '10 * 5 = 50', '10 * 8 = 80'", createMultplicationTableFor(10).toList)
 		  	  	  ) 
 		  	  
 		  	  
