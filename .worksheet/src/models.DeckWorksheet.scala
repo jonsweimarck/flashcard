@@ -1,51 +1,25 @@
 package models
 
-//import models._
+import models._
 import scala.util.Random
-object DeckWorksheet {;import org.scalaide.worksheet.runtime.library.WorksheetSupport._; def main(args: Array[String])=$execute{;$skip(507); 
- /*
-  def newState(state: String, deckSize: Integer, flashcardId: Integer): String = {
-    if(state == "0")
-    	 ("0" * (flashcardId)) + "1" + ("0" * (deckSize - flashcardId - 1))
-    else
-      state.substring(0, flashcardId ) + "1" + state.substring(flashcardId +1)
-  }
-  
-  newState("0", 5, 2)
-  newState("0", 5, 0)
-  newState("00000", 5, 2)
-  newState("00000", 5, 0)
-  newState("02020", 5, 2)
-*/
-	val rand = new Random();System.out.println("""rand  : scala.util.Random = """ + $show(rand ));$skip(104); 
-	val flashcards = List (Flashcard(0, "1+1=", "2"), Flashcard(1, "1+2=", "3"),Flashcard(2, "1+3=", "4"));System.out.println("""flashcards  : List[models.Flashcard] = """ + $show(flashcards ));$skip(543); 
+object DeckWorksheet {;import org.scalaide.worksheet.runtime.library.WorksheetSupport._; def main(args: Array[String])=$execute{;$skip(106); 
+ 
+ def add5(x: Int) = x +5;System.out.println("""add5: (x: Int)Int""");$skip(27); 
+ 
+ val l = List(1,2,3,4,5);System.out.println("""l  : List[Int] = """ + $show(l ));$skip(51); 
+ 
+ def f(x: Int) = if (x > 2) Some(x +1) else None;System.out.println("""f: (x: Int)Option[Int]""");$skip(20); val res$0 = 
+ 
+ l.map(x => f(x));System.out.println("""res0: List[Option[Int]] = """ + $show(res$0));$skip(22); val res$1 = 
+ l.flatMap(x => f(x));System.out.println("""res1: List[Int] = """ + $show(res$1));$skip(50); 
+ 
+ val optHello: Option[String] = Option("Hello");System.out.println("""optHello  : Option[String] = """ + $show(optHello ));$skip(36); 
+ val optNone: Option[String] = None;System.out.println("""optNone  : Option[String] = """ + $show(optNone ));$skip(31); val res$2 = 
+ 
+ optHello.map(_.toUpperCase);System.out.println("""res2: Option[String] = """ + $show(res$2));$skip(28); val res$3 = 
+ optNone.map(_.toUpperCase);System.out.println("""res3: Option[String] = """ + $show(res$3));$skip(41); val res$4 = 
+ 
+ optHello.map(x => List(x) ++ List(x));System.out.println("""res4: Option[List[String]] = """ + $show(res$4))}
 
-  def getRandomUnshownFlashcard(flashcardsState: String): Flashcard = {
    
-    def getRandomUnshownIndex(maxIndexExclusive: Integer): Integer = {
-	    val newId = rand.nextInt(maxIndexExclusive)
-	    if(flashcardsState.charAt(newId) == '0') return newId
-	    else return getRandomUnshownIndex(maxIndexExclusive)
-    }
-    
-    if (flashcardsState.length != flashcards.length) throw new Exception("flashcardsState.length != flashcards.length")
-    val flashIndex = getRandomUnshownIndex(flashcardsState.length)
-    flashcards(flashIndex)
-  };System.out.println("""getRandomUnshownFlashcard: (flashcardsState: String)models.Flashcard""");$skip(36); val res$0 = 
- 
- getRandomUnshownFlashcard("000");System.out.println("""res0: models.Flashcard = """ + $show(res$0));$skip(34); val res$1 = 
- getRandomUnshownFlashcard("101");System.out.println("""res1: models.Flashcard = """ + $show(res$1));$skip(26); 
- 
-  
-  val s = "0123012";System.out.println("""s  : String = """ + $show(s ));$skip(19); 
-  val l = s.toList;System.out.println("""l  : List[Char] = """ + $show(l ));$skip(25); 
-  val z = l.zipWithIndex;System.out.println("""z  : List[(Char, Int)] = """ + $show(z ));$skip(51); val res$2 = 
-  
- for{zi <- z
-   if(zi._1 == '1')
- } yield zi._2;System.out.println("""res2: List[Int] = """ + $show(res$2))}
-   
-   
-  
-  
-}
+   }

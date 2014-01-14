@@ -17,19 +17,18 @@
       
       function drawChart(nbrUnshown, nbrShownOK, nbrShownNOK) {
         var data = google.visualization.arrayToDataTable([
-          ['Task', 'Hours per Day'],
-          ['Kvar',     	@state.numberOfUnshownCards],
+          ['Task', 'Hours per Day'],        
           ['Klarade direkt',  	@state.numberOfCardsOkAfterFirstTry],
+          ['Klarade efter flera försök', @state.numberOfCardsOkAfterMultipleTries],
           ['Fel',  		@state.numberOfCardsNotOk],
-          ['Klarade efter flera försök', @state.numberOfCardsOkAfterMultipleTries]
+          ['Kvar',     	@state.numberOfUnshownCards],
         ]); 
 
         var options = {
-          colors:['green','red','limegreen', 'blue'],
+          colors:['limegreen','green','red','blue'],
           backgroundColor: '#D0E7EF',
           chartArea:{left:8,top:10,width:"84%",height:"84%"},
-          legend:{position:'none', },
-          reverseCategories:true
+          legend:{position: 'none'}, reverseCategories:true
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
