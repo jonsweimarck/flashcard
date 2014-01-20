@@ -97,7 +97,7 @@ object Deck {
       for(j <- 11 to 19) yield { 
         id = id + 1; 
         val otherTerm = Math.abs(difference -j)
-        val answer = j + " - " + "K" + otherTerm.toString+ "K" + " = " + difference
+        val answer = j + " - " + otherTerm.toString + " = " + difference
         rand.nextInt(3) match {
       	  case(0) => Flashcard(id, j + " - _ = " + difference, answer)
       	  case(1) => Flashcard(id, "_ - " + otherTerm + " = " + difference, answer)
