@@ -91,6 +91,21 @@ object Deck {
         } 
       } 
     }
+  
+  def storaMinusFrom11to19DifferenceIs(difference: Int) = {
+	  var id = 0
+      for(j <- 11 to 19) yield { 
+        id = id + 1; 
+        val otherTerm = Math.abs(difference -j)
+        val answer = j + " - " + "K" + otherTerm.toString+ "K" + " = " + difference
+        rand.nextInt(3) match {
+      	  case(0) => Flashcard(id, j + " - _ = " + difference, answer)
+      	  case(1) => Flashcard(id, "_ - " + otherTerm + " = " + difference, answer)
+      	  case(2) => Flashcard(id, j + " - " + otherTerm + " = _", answer)
+        } 
+      } 
+    }
+
     
  private val storaPlusOnlyStartsWith10 = storaPlusOnlyStartsWithX(10)
  private val storaPlusOnlyStartsWith9 = storaPlusOnlyStartsWithX(9)
@@ -104,6 +119,7 @@ object Deck {
  private val storaPlusOnlyStartsWith1 = storaPlusOnlyStartsWithX(1)
  private val storaPlusOnlyStartsWith8_9_10 = storaPlusOnlyStartsWithX(8)  ++ storaPlusOnlyStartsWithX(9) ++ storaPlusOnlyStartsWithX(10)
  
+ private val storaMinusFrom11to19DifferenceIs10or9 = storaMinusFrom11to19DifferenceIs(9) ++ storaMinusFrom11to19DifferenceIs(10)
   
   private val storaPlusCardsExcludingLillaPlus = {
     var id = 0
@@ -189,8 +205,11 @@ object Deck {
 		  	  	  Deck(39, "Sjuans tabell", Multiplication(), "Exempelvis '7 * 5 = 35', '7 * 8 = 56'", createMultplicationTableFor(7).toList),
 		  	  	  Deck(40, "Åttans tabell", Multiplication(), "Exempelvis '8 * 5 = 40', '8 * 8 = 64'", createMultplicationTableFor(8).toList),
 		  	  	  Deck(41, "Nians tabell", Multiplication(), "Exempelvis '9 * 5 = 45', '9 * 8 = 72'", createMultplicationTableFor(9).toList),
-		  	  	  Deck(42, "Tians tabell", Multiplication(), "Exempelvis '10 * 5 = 50', '10 * 8 = 80'", createMultplicationTableFor(10).toList)
-		  	  	  ) 
+		  	  	  Deck(42, "Tians tabell", Multiplication(), "Exempelvis '10 * 5 = 50', '10 * 8 = 80'", createMultplicationTableFor(10).toList),
+		  	  	  Deck(43, "Stora minus (endast 'Minus alla heltal' och 'Minus alla heltal och ta ett från tiotalet')", Subtraction(), "Exempelvis '11 - 1 = _', '19 - _ = 9'", storaMinusFrom11to19DifferenceIs10or9.toList)
+		  	  	  
+		  	  	  
+  ) 
 		  	  
 		  	  
 }
