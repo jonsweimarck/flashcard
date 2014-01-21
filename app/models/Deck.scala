@@ -34,17 +34,17 @@ object Deck {
   
   private def findByDeckType(deckType: DeckType) = Deck.decks.filter (d => d.deckType == deckType)
   
-   private var lillaPlusCards = {
+   private val lillaPlusCards = {
     var id = 0
     for{i <- 0 to 10;
-    	j <- 0 to 10 if (i + j <= 10 )// || (i == 5 && j == 6) || (i == 6  && j == 5)) Uppsavjaskolan special struntar jag i
+    	j <- 0 to 10 if i + j <= 10 // || (i == 5 && j == 6) || (i == 6  && j == 5)) Uppsavjaskolan special struntar jag i
     } yield { 
-      id = id + 1; 
+      id = id + 1
       Flashcard(id, i + " + " + j + " = ", i + " + " + j + " = " + (i + j).toString)
     }
   }
   
-  var lillaPlusCardsRandomMissing = {
+  val lillaPlusCardsRandomMissing = {
     var id = 0
     for{i <- 0 to 10;
     	j <- 0 to 10 if (i + j <= 10 )
@@ -58,7 +58,7 @@ object Deck {
     }
   }
   
-  private var lillaMinusCards = {
+  private val lillaMinusCards = {
     var id = 0
     for{i <- 0 to 10;
     	j <- 0 to 10 if (i - j >= 0)
@@ -68,7 +68,7 @@ object Deck {
     }
   }
   
-  private var lillaMinusCardsRandomMissing = {
+  private val lillaMinusCardsRandomMissing = {
     var id = 0
     for{i <- 0 to 10;
     	j <- 0 to 10 if (i - j >= 0)
@@ -137,7 +137,7 @@ object Deck {
     for { 
     	card <- lillaPlusCards ++ storaPlusCardsExcludingLillaPlus
     } yield {  
-    	id = id + 1; 
+    	id = id + 1
     	Flashcard(id, card.question, card.answer)
     } 
   }
@@ -147,7 +147,7 @@ object Deck {
     for{i <- 0 to 20;
     	j <- 0 to 20 if (i - j >= 0) && (i > 10 || j > 10)
     } yield { 
-      id = id + 1; 
+      id = id + 1
       Flashcard(id, i + " - " + j + " = ", i + " - " + j + " = " + (i - j).toString)
     }
   }
@@ -157,7 +157,7 @@ object Deck {
     for { 
     	card <- lillaMinusCards ++ storaMinusCardsExcludingLillaMinus
     } yield {  
-    	id = id + 1; 
+    	id = id + 1
     	Flashcard(id, card.question, card.answer)
     } 
   }
