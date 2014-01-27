@@ -106,6 +106,20 @@ object Deck {
       } 
     }
 
+  def storaMinusFrom11To19_LastTermIs(lastTerm: Int) = {
+    var id = 0
+    for(j <- 11 to 19) yield {
+      id = id + 1;
+      val difference = Math.abs(j - lastTerm)
+      val answerString = j + " - " + lastTerm.toString + " = " + difference
+      rand.nextInt(3) match {
+        case(0) => Flashcard(id, j + " - _ = " + difference, answerString)
+        case(1) => Flashcard(id, "_ - " + lastTerm + " = " + difference, answerString)
+        case(2) => Flashcard(id, j + " - " + lastTerm + " = _", answerString)
+      }
+    }
+  }
+
     
  private val storaPlusOnlyStartsWith10 = storaPlusOnlyStartsWithX(10)
  private val storaPlusOnlyStartsWith9 = storaPlusOnlyStartsWithX(9)
@@ -119,7 +133,9 @@ object Deck {
  private val storaPlusOnlyStartsWith1 = storaPlusOnlyStartsWithX(1)
  private val storaPlusOnlyStartsWith8_9_10 = storaPlusOnlyStartsWithX(8)  ++ storaPlusOnlyStartsWithX(9) ++ storaPlusOnlyStartsWithX(10)
  
- private val storaMinusFrom11to19DifferenceIs10or9 = storaMinusFrom11to19DifferenceIs(9) ++ storaMinusFrom11to19DifferenceIs(10)
+  private val storaMinusFrom11to19DifferenceIs10or9 = storaMinusFrom11to19DifferenceIs(9) ++ storaMinusFrom11to19DifferenceIs(10)
+
+  private val storaMinusFrom11To19_LastTermIs10or9 = storaMinusFrom11To19_LastTermIs(10) ++ storaMinusFrom11To19_LastTermIs(9);
   
   private val storaPlusCardsExcludingLillaPlus = {
     var id = 0
@@ -206,9 +222,10 @@ object Deck {
 		  	  	  Deck(40, "Åttans tabell", Multiplication(), "Exempelvis '8 * 5 = 40', '8 * 8 = 64'", createMultplicationTableFor(8).toList),
 		  	  	  Deck(41, "Nians tabell", Multiplication(), "Exempelvis '9 * 5 = 45', '9 * 8 = 72'", createMultplicationTableFor(9).toList),
 		  	  	  Deck(42, "Tians tabell", Multiplication(), "Exempelvis '10 * 5 = 50', '10 * 8 = 80'", createMultplicationTableFor(10).toList),
-		  	  	  Deck(43, "Stora minus (endast 'Minus alla heltal' och 'Minus alla heltal och ta ett från tiotalet')", Subtraction(), "Exempelvis '11 - 1 = _', '19 - _ = 9'", storaMinusFrom11to19DifferenceIs10or9.toList)
-		  	  	  
-		  	  	  
+		  	  	  Deck(43, "Stora minus (endast 'Minus alla heltal' och 'Minus alla heltal och ta ett från tiotalet')", Subtraction(), "Exempelvis '11 - 1 = _', '19 - _ = 9'", storaMinusFrom11to19DifferenceIs10or9.toList),
+              Deck(44, "Stora minus (endast 'Minus 9' och 'Minus 10')", Subtraction(), "Exempelvis '17 - 9 = _', '12 - _ = 2'", storaMinusFrom11To19_LastTermIs10or9.toList)
+
+
   ) 
 		  	  
 		  	  
