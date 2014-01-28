@@ -35,7 +35,7 @@ object Deck {
   private def findByDeckType(deckType: DeckType) = Deck.decks.filter (d => d.deckType == deckType)
   
    private val lillaPlusCards = {
-    var id = 0
+    var id = -1
     for{i <- 0 to 10;
     	j <- 0 to 10 if i + j <= 10 // || (i == 5 && j == 6) || (i == 6  && j == 5)) Uppsavjaskolan special struntar jag i
     } yield { 
@@ -45,69 +45,69 @@ object Deck {
   }
   
   val lillaPlusCardsRandomMissing = {
-    var id = 0
+    var id = -1
     for{i <- 0 to 10;
     	j <- 0 to 10 if (i + j <= 10 )
     } yield {
       id = id + 1;
-     
+
       rand.nextInt(2) match {
       	case(0) => Flashcard(id, (i + j).toString + " = _ + " + j, (i + j).toString + " = " + i + " + " + j)
       	case(1) => Flashcard(id,  (i + j).toString + " = " + i + " + _",  (i + j).toString + " = " + i + " + " + j)
-      }     
+      }
     }
   }
   
   private val lillaMinusCards = {
-    var id = 0
+    var id = -1
     for{i <- 0 to 10;
     	j <- 0 to 10 if (i - j >= 0)
     } yield { 
-      id = id + 1; 
+      id = id + 1;
       Flashcard(id, i + " - " + j + " = ", i + " - " + j + " = " + (i - j).toString)
     }
   }
   
   private val lillaMinusCardsRandomMissing = {
-    var id = 0
+    var id = -1
     for{i <- 0 to 10;
     	j <- 0 to 10 if (i - j >= 0)
     } yield { 
-      id = id + 1; 
+      id = id + 1;
       rand.nextInt(2) match {
       	case(0) => Flashcard(id, (i - j).toString + " = _ - " + j , (i - j).toString + " = " + i + " - " + j)
       	case(1) => Flashcard(id, (i - j).toString + " = " + i + " - _" , (i - j).toString + " = " + i + " - " + j)
-      } 
+      }
     }
   }
   
   def storaPlusOnlyStartsWithX(x: Int) = {
-      var id = 0
+      var id = -1
       for(j <- 0 to 20 if x + j < 20) yield { 
-        id = id + 1; 
+        id = id + 1;
         rand.nextInt(2) match {
       	  case(0) => Flashcard(id, x + " + _ = " + (x + j).toString, x + " + " + j + " = " + (x + j).toString)
       	  case(1) => Flashcard(id, x + " + " + j + " = _", x +" + " + j + " = " + (x + j).toString)
-        } 
-      } 
+        }
+      }
     }
   
   def storaMinusFrom11to19DifferenceIs(difference: Int) = {
-	  var id = 0
+	  var id = -1
       for(j <- 11 to 19) yield { 
-        id = id + 1; 
+        id = id + 1;
         val otherTerm = Math.abs(difference -j)
         val answer = j + " - " + otherTerm.toString + " = " + difference
         rand.nextInt(3) match {
       	  case(0) => Flashcard(id, j + " - _ = " + difference, answer)
       	  case(1) => Flashcard(id, "_ - " + otherTerm + " = " + difference, answer)
       	  case(2) => Flashcard(id, j + " - " + otherTerm + " = _", answer)
-        } 
-      } 
+        }
+      }
     }
 
   def storaMinusFrom11To19_LastTermIs(lastTerm: Int) = {
-    var id = 0
+    var id = -1
     for(j <- 11 to 19) yield {
       id = id + 1;
       val difference = Math.abs(j - lastTerm)
@@ -131,35 +131,59 @@ object Deck {
  private val storaPlusOnlyStartsWith3 = storaPlusOnlyStartsWithX(3)
  private val storaPlusOnlyStartsWith2 = storaPlusOnlyStartsWithX(2)
  private val storaPlusOnlyStartsWith1 = storaPlusOnlyStartsWithX(1)
- private val storaPlusOnlyStartsWith8_9_10 = storaPlusOnlyStartsWithX(8)  ++ storaPlusOnlyStartsWithX(9) ++ storaPlusOnlyStartsWithX(10)
- 
-  private val storaMinusFrom11to19DifferenceIs10or9 = storaMinusFrom11to19DifferenceIs(9) ++ storaMinusFrom11to19DifferenceIs(10)
+ private val storaPlusOnlyStartsWith8_9_10 = {
+   var id = -1
+   for {
+     card <-   storaPlusOnlyStartsWithX(8)  ++ storaPlusOnlyStartsWithX(9) ++ storaPlusOnlyStartsWithX(10)
+   } yield {
+     id = id + 1
+     Flashcard(id, card.question, card.answer)
+   }
+ }
 
-  private val storaMinusFrom11To19_LastTermIs10or9 = storaMinusFrom11To19_LastTermIs(10) ++ storaMinusFrom11To19_LastTermIs(9);
-  
+  private val storaMinusFrom11to19DifferenceIs10or9 = {
+    var id = -1
+    for {
+      card <- storaMinusFrom11to19DifferenceIs(9) ++ storaMinusFrom11to19DifferenceIs(10)
+    } yield {
+      id = id + 1
+      Flashcard(id, card.question, card.answer)
+    }
+  }
+
+  private val storaMinusFrom11To19_LastTermIs10or9 = {
+      var id = -1
+      for {
+        card <- storaMinusFrom11To19_LastTermIs(10) ++ storaMinusFrom11To19_LastTermIs(9)
+      } yield {
+        id = id + 1
+        Flashcard(id, card.question, card.answer)
+      }
+   }
+
   private val storaPlusCardsExcludingLillaPlus = {
-    var id = 0
+    var id = -1
     for{i <- 0 to 20;
     	j <- 0 to 20 if (i + j > 10 ) && (i + j <= 20 )
     } yield { 
-      id = id + 1; 
+      id = id + 1;
       Flashcard(id, i + " + " + j + " = ", i + " + " + j + " = " + (i + j).toString)
     }
   }
   
   
   private val storaPlusCards = {
-    var id = 0
+    var id = -1
     for { 
     	card <- lillaPlusCards ++ storaPlusCardsExcludingLillaPlus
     } yield {  
     	id = id + 1
     	Flashcard(id, card.question, card.answer)
-    } 
+    }
   }
   
   private val storaMinusCardsExcludingLillaMinus = {
-    var id = 0
+    var id = -1
     for{i <- 0 to 20;
     	j <- 0 to 20 if (i - j >= 0) && (i > 10 || j > 10)
     } yield { 
@@ -169,17 +193,17 @@ object Deck {
   }
   
   private val storaMinusCards = {
-    var id = 0
+    var id = -1
     for { 
     	card <- lillaMinusCards ++ storaMinusCardsExcludingLillaMinus
     } yield {  
     	id = id + 1
     	Flashcard(id, card.question, card.answer)
-    } 
+    }
   }
   
   def createMultplicationTableFor(factor: Int) = {
-   var id = 0
+   var id = -1
    for { factor2 <- 0 to 10} yield {
      id = id + 1
      Flashcard(id, factor + " * " + factor2 + " = ", factor + " * " + factor2 + " = " + (factor * factor2).toString)
