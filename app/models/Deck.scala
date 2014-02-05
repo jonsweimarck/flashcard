@@ -203,17 +203,17 @@ object Deck {
   }
 
   private val storaMinus_minusHalften_minusNastanHalften = List(
-    Flashcard(0, "12 - 6 = ", "12 - 6 = 6"),
-    Flashcard(1, "14 - 7 = ", "14 - 7 = 7"),
+    Flashcard(0, "12 - _ = 6", "12 - 6 = 6"),
+    Flashcard(1, "_ - 7 = 7", "14 - 7 = 7"),
     Flashcard(2, "16 - 8 = ", "16 - 8 = 8"),
-    Flashcard(3, "18 - 9 = ", "18 - 9 = 9"),
-    Flashcard(4, "20 - 10 = ", "20 - 10 = 10"),
-    Flashcard(5, "11 - 5 = ", "11 - 5 = 6"),
+    Flashcard(3, "18 - _ = 9", "18 - 9 = 9"),
+    Flashcard(4, "_ - 10 = 10", "20 - 10 = 10"),
+    Flashcard(5, "11 - _ = 6", "11 - 5 = 6"),
     Flashcard(6, "11 - 6 = ", "11 - 6 = 5"),
-    Flashcard(7, "13 - 6 = ", "13 - 6 = 7"),
-    Flashcard(8, "13 - 7 = ", "13 - 7 = 6"),
+    Flashcard(7, "_ - 6 = 7", "13 - 6 = 7"),
+    Flashcard(8, "13 - _ = 6", "13 - 7 = 6"),
     Flashcard(9, "15 - 7 = ", "15 - 7 = 8"),
-    Flashcard(10, "15 - 8 = ", "15 - 8 = 7")
+    Flashcard(10, "_ - 8 = 7", "15 - 8 = 7")
   )
 
 
