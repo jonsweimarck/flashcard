@@ -270,10 +270,10 @@ object Deck {
 		  	  	  Deck(40, "Åttans tabell", Multiplication(), "Exempelvis '8 * 5 = 40', '8 * 8 = 64'", createMultplicationTableFor(8).toList),
 		  	  	  Deck(41, "Nians tabell", Multiplication(), "Exempelvis '9 * 5 = 45', '9 * 8 = 72'", createMultplicationTableFor(9).toList),
 		  	  	  Deck(42, "Tians tabell", Multiplication(), "Exempelvis '10 * 5 = 50', '10 * 8 = 80'", createMultplicationTableFor(10).toList),
-		  	  	  Deck(43, "Stora minus (endast 'Minus alla heltal' och 'Minus alla heltal och ta ett från tiotalet')", Subtraction(), "Exempelvis '11 - 1 = _', '19 - _ = 9'", storaMinusFrom11to19DifferenceIs10or9.toList),
+		  	  	  Deck(43, "Stora minus (endast 'Minus alla ental' och 'Minus alla enltal och ta ett från tiotalet')", Subtraction(), "Exempelvis '11 - 1 = _', '19 - _ = 9'", storaMinusFrom11to19DifferenceIs10or9.toList),
               Deck(44, "Stora minus (endast 'Minus 9' och 'Minus 10')", Subtraction(), "Exempelvis '17 - 9 = _', '12 - _ = 2'", storaMinusFrom11To19_LastTermIs10or9.toList),
               Deck(45, "Stora minus (endast 'Minus hälften' och 'Minus nästan hälften')", Subtraction(), "Exempelvis '12 - 6 = _', '13 - _ = 7'",  storaMinus_minusHalften_minusNastanHalften),
-              Deck(46, "Stora minus (endast 'Minus hälften', 'Minus nästan hälften', 'Minus 9', 'Minus 10', Minus alla heltal' och 'Minus alla heltal och ta ett från tiotalet')", Subtraction(), "Exempelvis '12 - 6 = _', '13 - _ = 7'",
+              Deck(46, "Stora minus (endast 'Minus hälften', 'Minus nästan hälften', 'Minus 9', 'Minus 10', Minus alla ental' och 'Minus alla ental och ta ett från tiotalet')", Subtraction(), "Exempelvis '12 - 6 = _', '13 - _ = 7'",
                 compile(compile(storaMinus_minusHalften_minusNastanHalften, storaMinusFrom11To19_LastTermIs10or9.toList), storaMinusFrom11to19DifferenceIs10or9.toList))
 
 
