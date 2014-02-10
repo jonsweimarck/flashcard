@@ -217,16 +217,25 @@ object Deck {
   )
 
 
+
   def createMultplicationTableFor(factor: Int) = {
    var id = -1
    for { factor2 <- 0 to 10} yield {
      id = id + 1
      Flashcard(id, factor + " * " + factor2 + " = ", factor + " * " + factor2 + " = " + (factor * factor2).toString)
    }
- }
+  }
+
+  def compile(l1: List[Flashcard], l2: List[Flashcard]) = {
+    var id = -1
+    for(l <- l1 ++ l2) yield {
+      id = id + 1
+      Flashcard(id, l.question, l.answer)
+    }
+  }
  
   
-  var decks = List(
+  val decks = List(
 		  		  Deck(1, "Lilla plus", Addition(), "Addition med två termer vars summa inte överstiger 10. Exempelvis 3 + 5 = 8 ", lillaPlusCards.toList),
 		  		  Deck(2, "Lilla plus (med saknade termer)", Addition(), "Som vanliga lilla plus men en term saknas istället för summan. Exempelvis 8 = 3 + _ ", lillaPlusCardsRandomMissing.toList),
 		  	  	  Deck(3, "Lilla minus", Subtraction(), "Subtraktion med två termer där ingen är högre än 10. Exempelvis 4 - 3 = 1 ", lillaMinusCards.toList),
@@ -263,7 +272,9 @@ object Deck {
 		  	  	  Deck(42, "Tians tabell", Multiplication(), "Exempelvis '10 * 5 = 50', '10 * 8 = 80'", createMultplicationTableFor(10).toList),
 		  	  	  Deck(43, "Stora minus (endast 'Minus alla heltal' och 'Minus alla heltal och ta ett från tiotalet')", Subtraction(), "Exempelvis '11 - 1 = _', '19 - _ = 9'", storaMinusFrom11to19DifferenceIs10or9.toList),
               Deck(44, "Stora minus (endast 'Minus 9' och 'Minus 10')", Subtraction(), "Exempelvis '17 - 9 = _', '12 - _ = 2'", storaMinusFrom11To19_LastTermIs10or9.toList),
-              Deck(45, "Stora minus (endast 'Minus hälften' och 'Minus nästan hälften')", Subtraction(), "Exempelvis '12 - 6 = _', '13 - _ = 7'",  storaMinus_minusHalften_minusNastanHalften)
+              Deck(45, "Stora minus (endast 'Minus hälften' och 'Minus nästan hälften')", Subtraction(), "Exempelvis '12 - 6 = _', '13 - _ = 7'",  storaMinus_minusHalften_minusNastanHalften),
+              Deck(46, "Stora minus (endast 'Minus hälften', 'Minus nästan hälften', 'Minus 9', 'Minus 10', Minus alla heltal' och 'Minus alla heltal och ta ett från tiotalet')", Subtraction(), "Exempelvis '12 - 6 = _', '13 - _ = 7'",
+                compile(compile(storaMinus_minusHalften_minusNastanHalften, storaMinusFrom11To19_LastTermIs10or9.toList), storaMinusFrom11to19DifferenceIs10or9.toList))
 
 
   ) 
