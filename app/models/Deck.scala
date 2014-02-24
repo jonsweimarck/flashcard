@@ -1,6 +1,7 @@
 package models
 
 import scala.util.Random
+import models.Deck
 
 abstract  class DeckType
 case class Addition() extends DeckType
@@ -216,7 +217,20 @@ object Deck {
     Flashcard(10, "_ - 8 = 7", "15 - 8 = 7")
   )
 
-
+  private val storaMinus_helHand_nastanTiokamrater_jamnaTal = List(
+    Flashcard(0, "12 - _ = 6", "12 - 5 = 7"),
+    Flashcard(1, "11 - 3 = _", "11 - 3 = 8"),
+    Flashcard(2, "_ - 4 = 8", "12 - 4 = 8"),
+    Flashcard(3, "12 - _ = 5", "12 - 7 = 5"),
+    Flashcard(4, "11 - 8 = _", "11 - 8 = 3"),
+    Flashcard(5, "_ - 8 = 4", "12 - 8 = 4"),
+    Flashcard(6, "13 - _ = 7", "13 - 5 = 7"),
+    Flashcard(7, "11 - 4 = _", "11 - 4 = 7"),
+    Flashcard(8, "_ - 6 = 8", "14 - 6 = 8"),
+    Flashcard(9, "13 - _ = 5", "13 - 8 = 5"),
+    Flashcard(10, "11 - 7 = _", "11 - 7 = 4"),
+    Flashcard(11, "_ - 8 = 6", "14 - 8 = 6")
+  )
 
   def createMultplicationTableFor(factor: Int) = {
    var id = -1
@@ -274,7 +288,8 @@ object Deck {
               Deck(44, "Stora minus (endast 'Minus 9' och 'Minus 10')", Subtraction(), "Exempelvis '17 - 9 = _', '12 - _ = 2'", storaMinusFrom11To19_LastTermIs10or9.toList),
               Deck(45, "Stora minus (endast 'Minus hälften' och 'Minus nästan hälften')", Subtraction(), "Exempelvis '12 - 6 = _', '13 - _ = 7'",  storaMinus_minusHalften_minusNastanHalften),
               Deck(46, "Stora minus (endast 'Minus hälften', 'Minus nästan hälften', 'Minus 9', 'Minus 10', Minus alla ental' och 'Minus alla ental och ta ett från tiotalet')", Subtraction(), "Exempelvis '12 - 6 = _', '13 - _ = 7'",
-                compile(compile(storaMinus_minusHalften_minusNastanHalften, storaMinusFrom11To19_LastTermIs10or9.toList), storaMinusFrom11to19DifferenceIs10or9.toList))
+                compile(compile(storaMinus_minusHalften_minusNastanHalften, storaMinusFrom11To19_LastTermIs10or9.toList), storaMinusFrom11to19DifferenceIs10or9.toList)),
+                Deck(47, "Stora minus (endast 'Hel hand', 'Nästan tiokamrater' och 'Jämna tal')", Subtraction(), "Exempelvis '12 - 5 = _', '13 - _ = 8'",  storaMinus_helHand_nastanTiokamrater_jamnaTal)
 
 
   ) 
