@@ -1,7 +1,6 @@
 package models
 
 import scala.util.Random
-import models.Deck
 
 abstract  class DeckType
 case class Addition() extends DeckType
